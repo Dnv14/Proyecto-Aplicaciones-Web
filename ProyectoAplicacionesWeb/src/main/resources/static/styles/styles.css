@@ -4,6 +4,8 @@ llamemos al styles*/
 @import "variablesGlobales.css";
 @import "header-footer.css";
 @import "frmPrincipalUsuario.css";
+@import "inicio-registro.css";
+
 
 * {
     box-sizing: border-box;
