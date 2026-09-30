@@ -1,0 +1,108 @@
+/*Aqui separe el header y footer porque en cada frame los usamos 
+entonces para que no se repita a cada rato en el css
+*/
+
+/* #region header de la pagina */
+
+.main-header {
+    background-color: var(--primaryColor);
+    color: white;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.logo img {
+    height: 50px;
+    vertical-align: middle;
+}
+
+.search {
+    flex: 1;
+    max-width: 500px;
+    margin: 0 20px;
+}
+
+.search input[type="text"] {
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: none;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+}
+
+.links-usuario {
+    display: flex;
+    gap: 20px;
+}
+
+.links-usuario a {
+    color: white;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.links-usuario a:hover {
+    color: #CBD5E0;
+}
+
+.nav-categorias {
+    background-color: var(--bg-main);
+    border-bottom: 1px solid var(--primaryColor);
+}
+
+.nav-categorias ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 30px;
+    padding: 12px 0;
+}
+
+.nav-categorias a {
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.nav-categorias a:hover {
+    color: var(--text-muted);
+}
+
+/* #endregion */
+
+/* #region pie de pagina */
+.main-footer {
+    background-color: var(--primaryColor);
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 25px 20px;
+}
+
+.footer-benefit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-benefit span {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.footer-benefit small {
+    color: #9CA3AF;
+    font-size: 0.8rem;
+}
+
+/* #endregion */

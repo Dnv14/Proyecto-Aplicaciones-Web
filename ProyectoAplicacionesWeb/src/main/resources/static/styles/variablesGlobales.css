@@ -1,0 +1,17 @@
+/*variables que se repitan mucho como los colores 
+de la pagina y asi
+*/
+
+/* #region variables globales del styles */
+:root {
+    --primaryColor: #111827;
+    --bg-main: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --text-main: #111827;
+    --text-muted: #64748B;
+
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* #endregion */

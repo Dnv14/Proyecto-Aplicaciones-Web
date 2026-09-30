@@ -1,0 +1,34 @@
+/*aqui nomas es importar los archivos que vayan creando para que en el html nomas le
+llamemos al styles*/
+
+@import "variablesGlobales.css";
+@import "header-footer.css";
+@import "frmPrincipalUsuario.css";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+main {
+    max-width: 1200px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+}
