@@ -5,7 +5,9 @@ llamemos al styles*/
 @import "header-footer.css";
 @import "frmPrincipalUsuario.css";
 @import "inicio-registro.css";
-
+@import "carrito.css";
+@import "checkout.css";
+    
 
 * {
     box-sizing: border-box;

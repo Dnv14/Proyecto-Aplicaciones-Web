@@ -1,139 +1,149 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Sport Shop - Carrito</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../resources/static/styles/variablesGlobales.css">
-    <link rel="stylesheet" href="../../../resources/static/styles/header-footer.css">
-    <link rel="stylesheet" href="../../../resources/static/styles/carrito.css">
+    <link rel="stylesheet" href="../../../resources/static/styles/styles.css">
 </head>
 
 <body>
-<header class="main-header">
-    <div class="header-top">
-        <a href="frmPrincipalUsuario.html" class="logo">
-            <img src="../../imgs/logo.jpg" alt="Logo Sport Shop">
-        </a>
+    <header class="main-header">
+        <div class="header-top">
+            <a href="frmPrincipalUsuario.html" class="logo">
+                <img src="../../imgs/logo.jpg" alt="Logo Sport Shop">
+            </a>
 
-        <div class="search">
-            <input type="text" placeholder="¿Qué producto estás buscando?">
+            <div class="links-usuario">
+                <a href="#">Historial de pedidos</a>
+                <a href="#">Carrito</a>
+                <a href="../frmLogin.html">Login</a>
+            </div>
         </div>
 
-        <div class="links-usuario">
-            <a href="#">Historial de pedidos</a>
-            <a href="#">Carrito</a>
-            <a href="../frmLogin.html">Login</a>
-        </div>
-    </div>
 
-    <nav class="nav-categorias">
-        <ul>
-            <li><a href="#">Fútbol</a></li>
-            <li><a href="#">Gym</a></li>
-            <li><a href="#">Basquetbol</a></li>
-            <li><a href="#">Boxeo</a></li>
-            <li><a href="#">Ropa deportiva</a></li>
-            <li><a href="#">Calzado</a></li>
-            <li><a href="#">Accesorios</a></li>
-        </ul>
-    </nav>
-</header>
+    </header>
 
-<main class="carrito-container">
-    <section class="carrito-productos">
-        <h1>Mis productos</h1>
-        <div class="lista-productos">
+    <main class="carrito-container">
+        <section class="carrito-productos">
+            <h1>Mis productos</h1>
+            <div class="lista-productos">
 
-            <article class="producto-carrito">
-                <img src="../../imgs/balonFutbol.png" alt="Balon de futbol" class="producto-imagen">
-                <div class="producto-info">
-                    <h3>Balon de futbol pro Match</h3>
-                    <p class="producto-categoria">Futbol · Balones</p>
-                    <p class="producto-precio">$699 MXN</p>
+                <article class="producto-carrito">
+                    <img src="../../imgs/balonFutbol.png" alt="Balon de futbol" class="producto-imagen">
+                    <div class="producto-info">
+                        <h3>Balon de futbol pro Match</h3>
+                        <p class="producto-categoria">Futbol · Balones</p>
+                        <p class="producto-precio">$699 MXN</p>
 
-                    <div class="producto-cantidad">
-                        <button type="button">-</button>
-                        <span>1</span>
-                        <button type="button">+</button>
+                        <div class="producto-cantidad">
+                            <button type="button">-</button>
+                            <span>1</span>
+                            <button type="button">+</button>
+                        </div>
                     </div>
-                </div>
-                <div class="producto-subtotal">
-                    <button type="button" class="btn-eliminar"><span class="signo-menos">−</span></button>
-                    <div class="subtotal-info">
-                        <span>Subtotal</span>
-                        <strong>$699 MXN</strong>
+                    <div class="producto-subtotal">
+                        <button type="button" class="btn-eliminar"><span class="signo-menos">−</span></button>
+                        <div class="subtotal-info">
+                            <span>Subtotal</span>
+                            <strong>$699 MXN</strong>
+                        </div>
                     </div>
-                </div>
-            </article>
 
-            <article class="producto-carrito">
-                <img src="../../imgs/balonFutbol.png" alt="Balon de futbol" class="producto-imagen">
-                <div class="producto-info">
-                    <h3>Guantes de Boxeo</h3>
-                    <p class="producto-categoria">Box · Guantes</p>
-                    <p class="producto-precio">$1000 MXN</p>
+                </article>
 
-                    <div class="producto-cantidad">
-                        <button type="button">-</button>
-                        <span>1</span>
-                        <button type="button">+</button>
+                <article class="producto-carrito">
+                    <img src="../../imgs/balonFutbol.png" alt="Balon de futbol" class="producto-imagen">
+                    <div class="producto-info">
+                        <h3>Guantes de Boxeo</h3>
+                        <p class="producto-categoria">Box · Guantes</p>
+                        <p class="producto-precio">$1000 MXN</p>
+
+                        <div class="producto-cantidad">
+                            <button type="button">-</button>
+                            <span>1</span>
+                            <button type="button">+</button>
+                        </div>
                     </div>
-                </div>
-                <div class="producto-subtotal">
-                    <button type="button" class="btn-eliminar"><span class="signo-menos">−</span></button>
-                    <div class="subtotal-info">
-                        <span>Subtotal</span>
-                        <strong>$1000 MXN</strong>
+                    <div class="producto-subtotal">
+                        <button type="button" class="btn-eliminar"><span class="signo-menos">−</span></button>
+                        <div class="subtotal-info">
+                            <span>Subtotal</span>
+                            <strong>$1000 MXN</strong>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
+                <article class="producto-carrito">
+                    <img src="../../imgs/balonFutbol.png" alt="Balon de futbol" class="producto-imagen">
+                    <div class="producto-info">
+                        <h3>Balon de futbol pro Match</h3>
+                        <p class="producto-categoria">Futbol · Balones</p>
+                        <p class="producto-precio">$699 MXN</p>
+
+                        <div class="producto-cantidad">
+                            <button type="button">-</button>
+                            <span>1</span>
+                            <button type="button">+</button>
+                        </div>
+                    </div>
+                    <div class="producto-subtotal">
+                        <button type="button" class="btn-eliminar"><span class="signo-menos">−</span></button>
+                        <div class="subtotal-info">
+                            <span>Subtotal</span>
+                            <strong>$699 MXN</strong>
+                        </div>
+                    </div>
+
+                </article>
+
+            </div>
+        </section>
+
+        <aside class="resumen-pedido">
+
+            <h2>Resumen del pedido:</h2>
+
+            <div class="resumen-fila">
+                <span>Subtotal (2 productos)</span>
+                <span>$1,699 MXN</span>
+            </div>
+
+            <div class="resumen-fila">
+                <span>Envio</span>
+                <span>Gratis</span>
+            </div>
+
+            <hr>
+
+            <div class="resumen-total">
+                <span>Total</span>
+                <strong> $1,699 MXN</strong>
+            </div>
+
+            <button type="button" class="btn-pago">Proceder al pago</button>
+
+            <p class="pago-seguro">Pago seguro y protegido</p>
+        </aside>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-benefit">
+            <span>Envíos gratis</span>
+            <small>En compras mayores $500</small>
         </div>
-    </section>
-
-    <aside class="resumen-pedido">
-
-        <h2>Resumen del pedido:</h2>
-
-        <div class="resumen-fila">
-            <span>Subtotal (2 productos)</span>
-            <span>$1,699 MXN</span>
+        <div class="footer-benefit">
+            <span>Compras seguras</span>
+            <small>En compras mayores $500</small>
         </div>
-
-        <div class="resumen-fila">
-            <span>Envio</span>
-            <span>Gratis</span>
+        <div class="footer-benefit">
+            <span>Compras seguras</span>
+            <small>En compras mayores $500</small>
         </div>
-
-        <hr>
-
-        <div class="resumen-total">
-            <span>Total</span>
-            <strong> $1,699 MXN</strong>
-        </div>
-
-        <button type="button" class="btn-pago">Proceder al pago</button>
-
-        <p class="pago-seguro">Pago seguro y protegido</p>
-    </aside>
-
-</main>
-
-<footer class="main-footer">
-    <div class="footer-benefit">
-        <span>Envíos gratis</span>
-        <small>En compras mayores $500</small>
-    </div>
-    <div class="footer-benefit">
-        <span>Compras seguras</span>
-        <small>En compras mayores $500</small>
-    </div>
-    <div class="footer-benefit">
-        <span>Compras seguras</span>
-        <small>En compras mayores $500</small>
-    </div>
-</footer>
+    </footer>
 
 </body>
+
 </html>
