@@ -114,7 +114,6 @@ entonces para que no se repita a cada rato en el css
     position: static;
     transform: none;
     margin-right: 10px;
-
     display: flex;
     align-items: center;
 }
