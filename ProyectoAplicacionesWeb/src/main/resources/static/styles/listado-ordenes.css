@@ -1,0 +1,28 @@
+
+/* --- TABLA DE ÓRDENES --- */
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-body);
+}
+
+.orders-table th {
+    text-align: left;
+    padding: 12px 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-main);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.orders-table td {
+    padding: 14px 10px;
+    font-size: 14px;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.orders-table tbody tr:hover {
+    background-color: var(--bg-main);
+    cursor: pointer;
+}

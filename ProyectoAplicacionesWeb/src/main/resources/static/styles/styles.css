@@ -8,6 +8,10 @@ llamemos al styles*/
 @import "producto.css";
 @import "checkout.css";
 @import "carrito.css";
+@import "menu-desplegable.css";
+@import "crear-producto.css";
+@import "listado-ordenes.css";
+@import "boton-ordenar.css";
 
 
 * {

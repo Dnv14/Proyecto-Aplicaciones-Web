@@ -1,0 +1,35 @@
+.menu-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.content-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--bg-card);
+    min-width: 220px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    padding: 8px 0;
+    border-radius: 4px;
+}
+
+.content-dropdown li a {
+    color: var(--text-main);
+    font-family: var(--font-body);
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.content-dropdown li a:hover {
+    background-color: var(--bg-main);
+    color: var(--primaryColor);
+}
+
+.menu-dropdown:hover .content-dropdown {
+    display: block;
+}
