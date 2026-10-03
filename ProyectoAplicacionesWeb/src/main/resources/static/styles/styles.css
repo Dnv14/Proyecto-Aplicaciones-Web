@@ -5,6 +5,9 @@ llamemos al styles*/
 @import "header-footer.css";
 @import "frmPrincipalUsuario.css";
 @import "inicio-registro.css";
+@import "producto.css";
+@import "checkout.css";
+@import "carrito.css";
 
 
 * {

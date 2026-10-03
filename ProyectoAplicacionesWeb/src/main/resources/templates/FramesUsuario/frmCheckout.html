@@ -1,146 +1,139 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Sport Shop - Checkout</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../resources/static/styles/variablesGlobales.css">
-    <link rel="stylesheet" href="../../../resources/static/styles/header-footer.css">
-    <link rel="stylesheet" href="../../../resources/static/styles/checkout.css">
+    <link rel="stylesheet" href="../../../resources/static/styles/styles.css">
 
 </head>
+
 <body>
 
-<header class="main-header">
-    <div class="header-top">
-        <a href="frmPrincipalUsuario.html" class="logo">
-            <img src="../../imgs/logo.jpg" alt="Logo Sport Shop">
-        </a>
+    <header class="main-header">
+        <div class="header-top">
+            <a href="frmCarritoUsuario.html" class="back-button">
+                <img src="../../imgs/arrow_back_.png" alt="Volver">
+            </a>
+            <a href="frmPrincipalUsuario.html" class="logo">
+                <img src="../../imgs/logo.jpg" alt="Logo Sport Shop">
+            </a>
 
-        <div class="search">
-            <input type="text" placeholder="¿Qué producto estás buscando?">
+            <div class="search">
+                <input type="text" placeholder="¿Qué producto estás buscando?">
+            </div>
+
+            <div class="links-usuario">
+                <a href="#">Historial de pedidos</a>
+                <a href="#">Carrito</a>
+                <a href="../frmLogin.html">Login</a>
+            </div>
         </div>
 
-        <div class="links-usuario">
-            <a href="#">Historial de pedidos</a>
-            <a href="#">Carrito</a>
-            <a href="../frmLogin.html">Login</a>
-        </div>
-    </div>
+    </header>
 
-    <nav class="nav-categorias">
-        <ul>
-            <li><a href="#">Fútbol</a></li>
-            <li><a href="#">Gym</a></li>
-            <li><a href="#">Basquetbol</a></li>
-            <li><a href="#">Boxeo</a></li>
-            <li><a href="#">Ropa deportiva</a></li>
-            <li><a href="#">Calzado</a></li>
-            <li><a href="#">Accesorios</a></li>
-        </ul>
-    </nav>
-</header>
+    <main class="checkout-container">
+        <section class="checkout-formulario">
+            <h2>Completar checkout</h2>
+            <p>Ingresa tu información</p>
+            <form class="form-checkout" id="form-checkout">
+                <h3>Información de contacto</h3>
 
-<main class="checkout-container">
-    <section class="checkout-formulario">
-        <h2>Completar checkout</h2>
-        <p>Ingresa tu información</p>
-        <form class="form-checkout" id="form-checkout">
-            <h3>Información de contacto</h3>
-
-            <div class="form-group">
-                <label for="nombre">Nombre completo:</label>
-                <input type="text" id="nombre" placeholder="nombre" required>
-            </div>
-
-            <div class="form-group">
-                <label for="correo">Correo electrónico:</label>
-                <input type="email" id="correo" placeholder="Correo" required>
-            </div>
-
-            <div class="form-group">
-                <label for="telefono">Telefono:</label>
-                <input type="tel" id="telefono" placeholder="telefono" required>
-            </div>
-
-            <h3>Dirección de envío:</h3>
-
-            <div class="form-group">
-                <label for="calle-numero">Calle y numero:</label>
-                <input type="text" id="calle-numero" placeholder="calle y numero" required>
-            </div>
-
-            <div class="form-group">
-                <label for="colonia">Colonia:</label>
-                <input type="text" id="colonia" placeholder="Colonia" required>
-            </div>
-
-            <div class="form-group-double">
-                <div class="form-field">
-                    <label for="ciudad">Ciudad</label>
-                    <input type="text" placeholder="Ciudad" id="ciudad" required>
+                <div class="form-group">
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" placeholder="nombre" required>
                 </div>
 
-                <div class="form-field">
-                    <label for="estado">Estado:</label>
-                    <input type="text" id="estado" placeholder="estado" required>
+                <div class="form-group">
+                    <label for="correo">Correo electrónico:</label>
+                    <input type="email" id="correo" placeholder="Correo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Telefono:</label>
+                    <input type="tel" id="telefono" placeholder="telefono" required>
+                </div>
+
+                <h3>Dirección de envío:</h3>
+
+                <div class="form-group">
+                    <label for="calle-numero">Calle y numero:</label>
+                    <input type="text" id="calle-numero" placeholder="calle y numero" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="colonia">Colonia:</label>
+                    <input type="text" id="colonia" placeholder="Colonia" required>
+                </div>
+
+                <div class="form-group-double">
+                    <div class="form-field">
+                        <label for="ciudad">Ciudad</label>
+                        <input type="text" placeholder="Ciudad" id="ciudad" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="estado">Estado:</label>
+                        <input type="text" id="estado" placeholder="estado" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="codigo-postal">Código postal:</label>
+                    <input type="text" id="codigo-postal" placeholder="Código postal:" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="referencias">Referencias:</label>
+                    <textarea id="referencias" placeholder="Referencias"></textarea>
+                </div>
+            </form>
+
+        </section>
+
+        <aside class="checkout-resumen">
+
+            <h2>Resumen del pedido</h2>
+
+            <div class="checkout-total">
+                <span>Total</span>
+                <strong>$1,699 MXN</strong>
+            </div>
+
+            <div class="checkout-productos">
+                <div class="checkout-producto">
+                    <span>Balon de futbol Pro match</span>
+                    <span>Cantidad: 1</span>
+                    <span>$699 MXN</span>
+                </div>
+
+                <div class="checkout-producto">
+                    <span> Guantes de Boxeo</span>
+                    <span>Cantidad: 1</span>
+                    <span>$1,000 MXN</span>
                 </div>
             </div>
+            <button type="submit" form="form-checkout" class="btn-pagar">Pagar</button>
+        </aside>
 
-            <div class="form-group">
-                <label for="codigo-postal">Código postal:</label>
-                <input type="text" id="codigo-postal" placeholder="Código postal:" required>
-            </div>
+    </main>
 
-            <div class="form-group">
-                <label for="referencias">Referencias:</label>
-                <textarea id="referencias" placeholder="Referencias"></textarea>
-            </div>
-        </form>
-
-    </section>
-
-    <aside class="checkout-resumen">
-
-        <h2>Resumen del pedido</h2>
-
-        <div class="checkout-total">
-            <span>Total</span>
-            <strong>$1,699 MXN</strong>
+    <footer class="main-footer">
+        <div class="footer-benefit">
+            <span>Envíos gratis</span>
+            <small>En compras mayores $500</small>
         </div>
-
-        <div class="checkout-productos">
-            <div class="checkout-producto">
-                <span>Balon de futbol Pro match</span>
-                <span>Cantidad: 1</span>
-                <span>$699 MXN</span>
-            </div>
-
-            <div class="checkout-producto">
-                <span> Guantes de Boxeo</span>
-                <span>Cantidad: 1</span>
-                <span>$1,000 MXN</span>
-            </div>
+        <div class="footer-benefit">
+            <span>Compras seguras</span>
+            <small>En compras mayores $500</small>
         </div>
-        <button type="submit" form="form-checkout" class="btn-pagar">Pagar</button>
-    </aside>
-
-</main>
-
-<footer class="main-footer">
-    <div class="footer-benefit">
-        <span>Envíos gratis</span>
-        <small>En compras mayores $500</small>
-    </div>
-    <div class="footer-benefit">
-        <span>Compras seguras</span>
-        <small>En compras mayores $500</small>
-    </div>
-    <div class="footer-benefit">
-        <span>Compras seguras</span>
-        <small>En compras mayores $500</small>
-    </div>
-</footer>
+        <div class="footer-benefit">
+            <span>Compras seguras</span>
+            <small>En compras mayores $500</small>
+        </div>
+    </footer>
 
 </body>
+
 </html>
