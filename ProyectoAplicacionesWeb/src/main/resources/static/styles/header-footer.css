@@ -105,4 +105,22 @@ entonces para que no se repita a cada rato en el css
     font-size: 0.8rem;
 }
 
+.header-detalle{
+    position: relative;
+    justify-content: flex-start;
+}
+
+.header-detalle .back-button{
+    position: static;
+    transform: none;
+    margin-right: 10px;
+
+    display: flex;
+    align-items: center;
+}
+
+.header-detalle .logo{
+    margin-right: auto;
+}
+
 /* #endregion */
