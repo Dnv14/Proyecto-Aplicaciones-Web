@@ -1,0 +1,150 @@
+.contenido-principal {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.titulo-seccion {
+    font-size: 18px;
+    margin: 0 0 15px 0;
+    color: #222222;
+}
+
+.contenedor-categorias {
+    width: 100%;
+    max-width: 1100px;
+    min-height: 300px;
+    margin: 0 auto;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border: 1px solid #bdbdbd;
+    border-radius: 7px;
+}
+
+.encabezado-categorias {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.buscador-categoria {
+    flex: 1;
+    margin-right: 15px;
+}
+
+
+.buscador-categoria input {
+    width: 100%;
+    max-width: 500px;
+    height: 32px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+    background-color: #eeeeee;
+    font-size: 11px;
+    color: #222222;
+}
+
+
+.buscador-categoria input:focus {
+    outline: 1px solid #26384d;
+}
+
+.boton-nueva-categoria {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #182433;
+    color: white;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.boton-nueva-categoria:hover {
+    background-color: #30445c;
+}
+
+.tabla-categorias-contenedor {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tabla-categorias {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 11px;
+}
+
+.tabla-categorias thead th {
+    padding: 9px 10px;
+    text-align: left;
+    font-weight: bold;
+    color: #333333;
+    border-bottom: 1px solid #cccccc;
+}
+
+.tabla-categorias th:nth-child(1) {
+    width: 18%;
+}
+
+.tabla-categorias th:nth-child(2) {
+    width: 25%;
+}
+
+.tabla-categorias th:nth-child(3) {
+    width: 20%;
+}
+
+.tabla-categorias th:nth-child(4) {
+    width: 37%;
+}
+
+.tabla-categorias tbody td {
+    padding: 9px 10px;
+    border-bottom: 1px solid #e5e5e5;
+    color: #333333;
+    vertical-align: middle;
+}
+
+.tabla-categorias tbody tr:hover {
+    background-color: #f7f7f7;
+}
+
+.acciones-categoria {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.acciones-categoria button {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 13px;
+    border-radius: 4px;
+}
+
+.acciones-categoria button:hover {
+    background-color: #eeeeee;
+    transform: scale(1.1);
+}
+
+.boton-editar {
+    color: #333333;
+}
+
+.boton-eliminar {
+    color: #333333;
+}
+
+.boton-productos {
+    color: #333333;
+}

@@ -1,0 +1,137 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport Shop - Gestionar Categorias</title>
+    <link rel="stylesheet" href="../../static/styles/styles.css">
+</head>
+
+<body>
+<header class="main-header">
+    <div class="header-top">
+        <a href="frmPrincipalAdministrador.html" class="logo">
+            <img src="../../imgs/logo.jpg" alt="Sport Shop Logo">
+        </a>
+
+        <div class="search">
+            <input type="text" placeholder="¿Qué producto estás buscando?">
+        </div>
+
+        <div class="links-usuario">
+            <div class="menu-dropdown">
+                <a href="#" class="btn-dropdown">Panel Administrativo </a>
+                <ul class="content-dropdown">
+                    <li><a href="frmCrearProducto.html">Crear Producto</a></li>
+                    <li><a href="#">Editar Producto</a></li>
+                    <li><a href="#">Activar / Desactivar Producto</a></li>
+                    <li><a href="#">Ver Inventario</a></li>
+                    <li><a href="#">Ajustar Inventario</a></li>
+                    <li><a href="frmListadoOrdenes.html">Ver Listado de Órdenes</a></li>
+                    <li><a href="#">Cambiar Estado de una Orden</a></li>
+                    <li><a href="#">Ver Dashboard de Resumen</a></li>
+                    <li><a href="frmGestionarCategorias.html">Gestionar Categorías</a></li>
+                </ul>
+            </div>
+            <a href="#">Logout</a>
+        </div>
+    </div>
+
+    <nav class="nav-categorias">
+        <ul>
+            <li><a href="#">Fútbol</a></li>
+            <li><a href="#">Gym</a></li>
+            <li><a href="#">Basquetbol</a></li>
+            <li><a href="#">Boxeo</a></li>
+            <li><a href="#">Ropa deportiva</a></li>
+            <li><a href="#">Calzado</a></li>
+            <li><a href="#">Accesorios</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="contenido-principal">
+    <h1 class="titulo-seccion">Gestionar Categorías</h1>
+    <section class="contenedor-categorias">
+        <div class="encabezado-categorias">
+            <div class="buscador-categoria">
+                <input
+                        type="text"
+                        id="buscarCategoria"
+                        placeholder="🔍  Buscar categoría">
+            </div>
+            <button type="button" class="boton-nueva-categoria">
+                Nueva Categoría +
+            </button>
+        </div>
+        <div class="tabla-categorias-contenedor">
+            <table class="tabla-categorias">
+                <thead>
+                <tr>
+                    <th>ID Categoría</th>
+                    <th>Categoría</th>
+                    <th>Productos</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Datos prellenados con fines demostrativos -->
+                <tr>
+                    <td>858855</td>
+                    <td>Gym</td>
+                    <td>15</td>
+                    <td>
+                        <div class="acciones-categoria">
+                            <button
+                                    type="button"
+                                    class="boton-editar"
+                                    title="Editar categoría">
+                                ✏️
+                            </button>
+                            <button
+                                    type="button"
+                                    class="boton-eliminar"
+                                    title="Eliminar categoría">
+                                🗑️
+                            </button>
+                            <button
+                                    type="button"
+                                    class="boton-productos"
+                                    title="Ver productos">
+                                📦
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>867786</td>
+                    <td>Fútbol</td>
+                    <td>6</td>
+                    <td>
+                        <div class="acciones-categoria">
+                            <button
+                                    type="button"
+                                    class="boton-editar"
+                                    title="Editar categoría">
+                                ✏️
+                            </button>
+                            <button
+                                    type="button"
+                                    class="boton-eliminar"
+                                    title="Eliminar categoría">
+                                🗑️
+                            </button>
+                            <button
+                                    type="button"
+                                    class="boton-productos"
+                                    title="Ver productos">
+                                📦
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+</body>
+</html>

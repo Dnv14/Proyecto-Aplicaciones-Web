@@ -12,6 +12,7 @@ llamemos al styles*/
 @import "crear-producto.css";
 @import "listado-ordenes.css";
 @import "boton-ordenar.css";
+@import "gestionar-producto.css";
 
 
 * {
