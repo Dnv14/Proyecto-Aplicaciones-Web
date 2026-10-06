@@ -1,155 +1,161 @@
-<head>
-    <meta charset="UTF-8">
-    <title>Sport Shop - Listado Ordenes</title>
-    <link rel="stylesheet" href="../../static/styles/styles.css">
-</head>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sport Shop - Listado Ordenes</title>
+        <link rel="stylesheet" href="../../static/styles/styles.css">
+    </head>
 
-<body>
-<header class="main-header">
-    <div class="header-top">
-        <a href="frmPrincipalAdministrador.html" class="logo">
-            <img src="../../imgs/logo.jpg" alt="Sport Shop Logo">
-        </a>
+    <body>
+    <header class="main-header">
+        <div class="header-top">
+            <a href="frmPrincipalAdministrador.html" class="logo">
+                <img src="../../imgs/logo.jpg" alt="Sport Shop Logo">
+            </a>
 
-        <div class="search">
-            <input type="text" placeholder="¿Qué producto estás buscando?">
-        </div>
-
-        <div class="links-usuario">
-            <div class="menu-dropdown">
-                <a href="#" class="btn-dropdown">Panel Administrativo </a>
-                <ul class="content-dropdown">
-                    <li><a href="frmCrearProducto.html">Crear Producto</a></li>
-                    <li><a href="#">Editar Producto</a></li>
-                    <li><a href="#">Activar / Desactivar Producto</a></li>
-                    <li><a href="#">Ver Inventario</a></li>
-                    <li><a href="#">Ajustar Inventario</a></li>
-                    <li><a href="frmListadoOrdenes.html">Ver Listado de Órdenes</a></li>
-                    <li><a href="#">Cambiar Estado de una Orden</a></li>
-                    <li><a href="#">Ver Dashboard de Resumen</a></li>
-                    <li><a href="#">Gestionar Categorías</a></li>
-                </ul>
-            </div>
-            <a href="#">Logout</a>
-        </div>
-    </div>
-
-    <nav class="nav-categorias">
-        <ul>
-            <li><a href="#">Fútbol</a></li>
-            <li><a href="#">Gym</a></li>
-            <li><a href="#">Basquetbol</a></li>
-            <li><a href="#">Boxeo</a></li>
-            <li><a href="#">Ropa deportiva</a></li>
-            <li><a href="#">Calzado</a></li>
-            <li><a href="#">Accesorios</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main class="main-content">
-    <div class="form-grid">
-
-        <!-- Columna Izquierda: Tarjeta con el Listado de Órdenes -->
-        <div class="form-section">
-            <div class="form-group row">
-                <input type="text" placeholder="Ingrese código de producto" class="input-rounded">
+            <div class="search">
+                <input type="text" placeholder="¿Qué producto estás buscando?">
             </div>
 
-            <table class="orders-table">
-                <thead>
-                <tr>
-                    <th>
-                        <div class="th-content">
-                            <span>Id</span>
-                            <button type="button" class="order-btn" title="Ordenar">
-                                <span class="indicator">▲</span>
-                                <span class="indicator">▼</span>
-                            </button>
-                        </div>
-                    </th>
-                    <th>
-                        <div class="th-content">
-                            <span>Estado</span>
-                            <button type="button" class="order-btn" title="Ordenar">
-                                <span class="indicator">▲</span>
-                                <span class="indicator">▼</span>
-                            </button>
-                        </div>
-                    </th>
-                    <th>
-                        <div class="th-content">
-                            <span>Fecha</span>
-                            <button type="button" class="order-btn" title="Ordenar">
-                                <span class="indicator">▲</span>
-                                <span class="indicator">▼</span>
-                            </button>
-                        </div>
-                    </th>
-                    <th>
-                        <div class="th-content">
-                            <span>Cliente</span>
-                            <button type="button" class="order-btn" title="Ordenar">
-                                <span class="indicator">▲</span>
-                                <span class="indicator">▼</span>
-                            </button>
-                        </div>
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>pendiente</td>
-                    <td>26/09/26</td>
-                    <td>Pepe</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>procesando</td>
-                    <td>27/09/26</td>
-                    <td>Jorge</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>enviado</td>
-                    <td>28/09/26</td>
-                    <td>Juan</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>entregado</td>
-                    <td>29/09/26</td>
-                    <td>Maria</td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="links-usuario">
+                <div class="menu-dropdown">
+                    <a href="#" class="btn-dropdown">Panel Administrativo </a>
+                    <ul class="dropdown-content">
+                        <li><a href="frmCrearProducto.html">Crear Producto</a></li>
+                        <li><a href="frmEditarProducto.html">Editar Producto</a></li>
+                        <li><a href="frmActivarDesactivar.html">Activar / Desactivar Producto</a></li>
+                        <li><a href="frmInventario.html">Ver Inventario</a></li>
+                        <li><a href="frmAjustarInventario.html">Ajustar Inventario</a></li>
+                        <li><a href="frmListadoOrdenes.html">Ver Listado de Órdenes</a></li>
+                        <li><a href="#">Cambiar Estado de una Orden</a></li>
+                        <li><a href="#">Ver Dashboard de Resumen</a></li>
+                        <li><a href="frmGestionarCategorias.html">Gestionar Categorías</a></li>
+                    </ul>
+                </div>
+                <a href="#">Logout</a>
+            </div>
         </div>
 
-        <!-- Columna Derecha: TODO informacion de la orden seleccionada -->
-        <div class="form-section">
+        <nav class="nav-categorias">
+            <ul>
+                <li><a href="#">Fútbol</a></li>
+                <li><a href="#">Gym</a></li>
+                <li><a href="#">Basquetbol</a></li>
+                <li><a href="#">Boxeo</a></li>
+                <li><a href="#">Ropa deportiva</a></li>
+                <li><a href="#">Calzado</a></li>
+                <li><a href="#">Accesorios</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main class="main-content">
+        <h1 class="section-title">Listado de Órdenes</h1>
+
+        <div class="form-grid orders-grid">
+            <!-- Columna Izquierda: Búsqueda y Tabla de Órdenes -->
+            <div class="form-section">
+                <div class="form-group row">
+                    <input type="text" placeholder="Ingrese código de producto" class="input-rounded">
+                </div>
+
+                <div class="table-responsive">
+                    <table class="orders-table">
+                        <thead>
+                        <tr>
+                            <th>
+                                <div class="th-content">
+                                    <span>Id</span>
+                                    <button type="button" class="order-btn" title="Ordenar">
+                                        <span class="indicator">▲</span>
+                                        <span class="indicator">▼</span>
+                                    </button>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="th-content">
+                                    <span>Estado</span>
+                                    <button type="button" class="order-btn" title="Ordenar">
+                                        <span class="indicator">▲</span>
+                                        <span class="indicator">▼</span>
+                                    </button>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="th-content">
+                                    <span>Fecha</span>
+                                    <button type="button" class="order-btn" title="Ordenar">
+                                        <span class="indicator">▲</span>
+                                        <span class="indicator">▼</span>
+                                    </button>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="th-content">
+                                    <span>Cliente</span>
+                                    <button type="button" class="order-btn" title="Ordenar">
+                                        <span class="indicator">▲</span>
+                                        <span class="indicator">▼</span>
+                                    </button>
+                                </div>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><span class="badge badge-pending">pendiente</span></td>
+                            <td>26/09/26</td>
+                            <td>Pepe</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><span class="badge badge-processing">procesando</span></td>
+                            <td>27/09/26</td>
+                            <td>Jorge</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><span class="badge badge-shipped">enviado</span></td>
+                            <td>28/09/26</td>
+                            <td>Juan</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><span class="badge badge-delivered">entregado</span></td>
+                            <td>29/09/26</td>
+                            <td>Maria</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Información de la orden seleccionada -->
+            <div class="form-section order-detail-card">
+                <h2 class="detail-title">Detalle de la Orden</h2>
+                <div class="detail-placeholder">
+                    <p>Seleccione una orden de la lista para ver su información detallada.</p>
+                </div>
+            </div>
         </div>
+    </main>
 
-    </div>
+    <footer class="main-footer">
+        <div class="footer-benefit">
+            <span>Envíos gratis</span>
+            <small>En compras mayores $500</small>
+        </div>
+        <div class="footer-benefit">
+            <span>Compras seguras</span>
+            <small>En compras mayores $500</small>
+        </div>
+        <div class="footer-benefit">
+            <span>Compras seguras</span>
+            <small>En compras mayores $500</small>
+        </div>
+    </footer>
 
-</main>
+    </body>
 
-<footer class="main-footer">
-    <div class="footer-benefit">
-        <span>Envíos gratis</span>
-        <small>En compras mayores $500</small>
-    </div>
-    <div class="footer-benefit">
-        <span>Compras seguras</span>
-        <small>En compras mayores $500</small>
-    </div>
-    <div class="footer-benefit">
-        <span>Compras seguras</span>
-        <small>En compras mayores $500</small>
-    </div>
-</footer>
-
-</body>
-
-</html>>
+</html>

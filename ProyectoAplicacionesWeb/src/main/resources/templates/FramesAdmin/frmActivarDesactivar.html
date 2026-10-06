@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sport Shop - Activar/Desactivar</title>
+        <link rel="stylesheet" href="../../static/styles/styles.css">
+    </head>
+
+    <body>
+    <header class="main-header">
+        <div class="header-top">
+            <a href="frmPrincipalAdministrador.html" class="logo">
+                <img src="../../imgs/logo.jpg" alt="Sport Shop Logo">
+            </a>
+
+            <div class="search">
+                <input type="text" placeholder="¿Qué producto estás buscando?">
+            </div>
+
+            <div class="links-usuario">
+                <div class="menu-dropdown">
+                    <a href="#" class="btn-dropdown">Panel Administrativo </a>
+                    <ul class="dropdown-content">
+                        <li><a href="frmCrearProducto.html">Crear Producto</a></li>
+                        <li><a href="frmEditarProducto.html">Editar Producto</a></li>
+                        <li><a href="frmActivarDesactivar.html">Activar / Desactivar Producto</a></li>
+                        <li><a href="frmInventario.html">Ver Inventario</a></li>
+                        <li><a href="frmAjustarInventario.html">Ajustar Inventario</a></li>
+                        <li><a href="frmListadoOrdenes.html">Ver Listado de Órdenes</a></li>
+                        <li><a href="#">Cambiar Estado de una Orden</a></li>
+                        <li><a href="#">Ver Dashboard de Resumen</a></li>
+                        <li><a href="frmGestionarCategorias.html">Gestionar Categorías</a></li>
+                    </ul>
+                </div>
+                <a href="#">Logout</a>
+            </div>
+        </div>
+
+        <nav class="nav-categorias">
+            <ul>
+                <li><a href="#">Fútbol</a></li>
+                <li><a href="#">Gym</a></li>
+                <li><a href="#">Basquetbol</a></li>
+                <li><a href="#">Boxeo</a></li>
+                <li><a href="#">Ropa deportiva</a></li>
+                <li><a href="#">Calzado</a></li>
+                <li><a href="#">Accesorios</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content">
+        <h1 class="section-title">Activar / Desactivar Producto</h1>
+
+        <div class="inventory-card">
+            <div class="form-group row">
+                <input type="text" placeholder="Ingrese código de producto" class="input-rounded">
+            </div>
+
+            <div class="table-scroll-container">
+                <table class="toggle-table">
+                    <thead>
+                    <tr>
+                        <th>
+                            <div class="th-content">
+                                <span>Código de Producto</span>
+                                <button type="button" class="order-btn" title="Ordenar">
+                                    <span class="indicator">▲</span>
+                                    <span class="indicator">▼</span>
+                                </button>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="th-content">
+                                <span>Estado</span>
+                                <button type="button" class="order-btn" title="Ordenar por Estado">
+                                    <span class="indicator">▲</span>
+                                    <span class="indicator">▼</span>
+                                </button>
+                            </div>
+                        </th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>858585</td>
+                        <td><span class="status-badge active">Activo</span></td>
+                        <td class="action-col">
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked title="Cambiar estado del producto">
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <span class="action-label">Seleccionar Cambio de Estado</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>86786</td>
+                        <td><span class="status-badge inactive">Inactivo</span></td>
+                        <td class="action-col">
+                            <label class="toggle-switch">
+                                <input type="checkbox" title="Cambiar estado del producto">
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <span class="action-label">Seleccionar Cambio de Estado</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>86787</td>
+                        <td><span class="status-badge active">Activo</span></td>
+                        <td class="action-col">
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked title="Cambiar estado del producto">
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <span class="action-label">Seleccionar Cambio de Estado</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>86788</td>
+                        <td><span class="status-badge inactive">Inactivo</span></td>
+                        <td class="action-col">
+                            <label class="toggle-switch">
+                                <input type="checkbox" title="Cambiar estado del producto">
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <span class="action-label">Seleccionar Cambio de Estado</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="external-btn-wrapper">
+            <button type="submit" class="btn-confirm-toggle">Confirmar Selecciones</button>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <div class="footer-benefit">
+            <span>Envíos gratis</span>
+            <small>En compras mayores $500</small>
+        </div>
+        <div class="footer-benefit">
+            <span>Compras seguras</span>
+            <small>En compras mayores $500</small>
+        </div>
+        <div class="footer-benefit">
+            <span>Compras seguras</span>
+            <small>En compras mayores $500</small>
+        </div>
+    </footer>
+    </body>
+</html>

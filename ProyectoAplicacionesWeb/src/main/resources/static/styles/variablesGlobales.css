@@ -5,6 +5,7 @@ de la pagina y asi
 /* #region variables globales del styles */
 :root {
     --primaryColor: #111827;
+    --primaryColor-hover: #1b263b;
     --bg-main: #F8FAFC;
     --bg-card: #FFFFFF;
     --border-color: #1111;

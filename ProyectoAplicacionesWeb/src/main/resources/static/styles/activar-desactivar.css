@@ -1,0 +1,63 @@
+.toggle-table td {
+    padding: 18px 12px;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.action-col {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+}
+
+.action-label {
+    font-size: 14px;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.toggle-switch {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggle-switch input[type="checkbox"] {
+    accent-color: var(--primaryColor);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.external-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-confirm-toggle {
+    background-color: var(--primaryColor);
+    color: #ffffff;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-confirm-toggle:hover {
+    background-color: var(--primaryColor-hover);
+}
+
+@media (max-width: 768px) {
+    .toggle-table td {
+        padding: 14px 8px;
+    }
+
+    .btn-confirm-toggle {
+        width: 100%;
+    }
+}

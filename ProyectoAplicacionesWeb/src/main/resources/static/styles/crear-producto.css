@@ -1,19 +1,7 @@
-.main-content {
-    max-width: 1100px;
-    margin: 30px auto;
-    padding: 0 20px;
-    font-family: var(--font-body);
+.create-product-form {
+    width: 100%;
 }
 
-.page-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--text-main);
-    font-family: var(--font-heading);
-    margin-bottom: 20px;
-}
-
-/* --- formulario de 2 columnas --- */
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -21,22 +9,24 @@
 }
 
 .form-section {
-    border: 1.5px solid var(--text-main);
+    border: 1.5px solid var(--border-color);
     border-radius: 16px;
-    padding: 30px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     background-color: var(--bg-card);
+    min-height: 480px;
+    box-sizing: border-box;
 }
 
 .form-group {
     display: flex;
-    align-items: center;
 }
 
 .form-group.row {
     flex-direction: row;
+    align-items: center;
     gap: 15px;
 }
 
@@ -50,7 +40,7 @@
     font-weight: 600;
     font-size: 15px;
     color: var(--text-main);
-    min-width: 100px;
+    min-width: 110px;
 }
 
 .input-rounded,
@@ -59,73 +49,106 @@
     width: 100%;
     background-color: var(--bg-main);
     color: var(--text-main);
-    border: none;
+    border: 1px solid var(--border-color);
     border-radius: 20px;
     padding: 10px 16px;
     font-size: 14px;
     outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-rounded:focus,
+.textarea-rounded:focus,
+.select-rounded:focus {
+    border-color: var(--primaryColor);
 }
 
 .input-short {
-    width: 100px;
+    width: 120px;
 }
 
 .textarea-rounded {
-    border-radius: 25px;
-    resize: none;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.select-rounded {
-    cursor: pointer;
+    border-radius: 16px;
+    resize: vertical;
+    min-height: 100px;
 }
 
 .image-upload-card {
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 20px;
 }
 
 .image-preview-box {
     width: 100%;
-    height: 320px;
+    max-width: 320px;
+    height: 280px;
     background-color: var(--bg-main);
-    border-radius: 8px;
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn-select-img {
+.btn-select-img,
+.btn-submit {
     background-color: var(--primaryColor);
-    color: var(--bg-card);
-    padding: 12px 28px;
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
     border-radius: 25px;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.1s;
+    text-align: center;
+    display: inline-block;
 }
 
-.btn-select-img:hover {
-    background-color: var(--text-muted);
+.btn-select-img:hover,
+.btn-submit:hover {
+    background-color: var(--primaryColor-hover);
 }
 
-.form-btn-create {
+.form-actions {
     display: flex;
     justify-content: center;
     margin-top: 30px;
 }
 
-.btn-create {
-    background-color: var(--primaryColor);
-    color: var(--bg-card);
-    border: none;
-    padding: 14px 45px;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    width: 100%;
 }
 
-.btn-create:hover {
-    background-color: var(--text-muted);
+/* Placas / Tarjetas */
+.form-section {
+    border: 1.5px solid var(--border-color);
+    border-radius: 16px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--bg-card);
+    box-sizing: border-box;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+    .form-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .form-section {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        min-height: initial;
+    }
 }

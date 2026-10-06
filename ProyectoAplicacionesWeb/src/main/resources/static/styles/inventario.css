@@ -1,0 +1,206 @@
+.inventory-card {
+    background-color: var(--bg-card);
+    border: 1.5px solid var(--border-color);
+    border-radius: 16px;
+    padding: 25px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+}
+
+.table-scroll-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: auto;
+    margin-top: 1rem;
+    padding-right: 4px;
+}
+
+.inventory-table,
+.adjust-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-body);
+}
+
+.inventory-table th,
+.adjust-table th {
+    text-align: left;
+    padding: 14px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+    border-bottom: 2px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.th-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.order-btn {
+    background: transparent;
+    border: none;
+    padding: 2px 4px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0.8;
+    border-radius: 4px;
+}
+
+.order-btn:hover {
+    background-color: var(--bg-main);
+}
+
+.indicator {
+    font-size: 9px;
+    color: var(--text-muted);
+}
+
+.order-btn:hover .indicator {
+    color: var(--text-main);
+}
+
+.inventory-table td,
+.adjust-table td {
+    padding: 18px 12px;
+    font-size: 14px;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.inventory-table tbody tr:hover,
+.adjust-table tbody tr:hover {
+    background-color: var(--bg-main);
+}
+
+.table-scroll-container::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.table-scroll-container::-webkit-scrollbar-track {
+    background: var(--bg-main);
+    border-radius: 10px;
+}
+
+.table-scroll-container::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 10px;
+}
+
+.table-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: var(--primaryColor);
+}
+
+.status-badge {
+    font-weight: 600;
+    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.status-badge.active {
+    color: #166534;
+    background-color: #dcfce7;
+}
+
+.status-badge.inactive {
+    color: #991b1b;
+    background-color: #fee2e2;
+}
+
+.action-col {
+    white-space: nowrap;
+}
+
+.action-col label {
+    margin-right: 12px;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+.input-capsule {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 8px 14px;
+    width: 90px;
+    outline: none;
+    font-size: 14px;
+    color: var(--text-main);
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-capsule:focus {
+    border-color: var(--primaryColor);
+}
+
+.input-capsule.input-reason {
+    width: 200px;
+}
+
+.external-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-confirm-adjustments {
+    background-color: var(--primaryColor);
+    color: #ffffff;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-confirm-adjustments:hover {
+    background-color: var(--primaryColor-hover);
+}
+
+@media (max-width: 768px) {
+    .inventory-card {
+        min-height: auto;
+        padding: 15px;
+    }
+
+    .inventory-table th,
+    .inventory-table td,
+    .adjust-table th,
+    .adjust-table td {
+        padding: 14px 8px;
+        font-size: 13px;
+    }
+
+    .action-col {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .input-capsule,
+    .input-capsule.input-reason {
+        width: 100%;
+    }
+
+    .btn-confirm-adjustments {
+        width: 100%;
+    }
+}

@@ -1,119 +1,119 @@
-<head>
-    <meta charset="UTF-8">
-    <title>Sport Shop - Editar Producto</title>
-    <link rel="stylesheet" href="../../static/styles/styles.css">
-</head>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" content="width=device-width, initial-scale=1.0">
+        <title>Sport Shop - Editar Producto</title>
+        <link rel="stylesheet" href="../../static/styles/styles.css">
+    </head>
 
-<body>
-<header class="main-header">
-    <div class="header-top">
-        <a href="frmPrincipalAdministrador.html" class="logo">
-            <img src="../../imgs/logo.jpg" alt="Sport Shop Logo">
-        </a>
+    <body>
+    <header class="main-header">
+        <div class="header-top">
+            <a href="frmPrincipalAdministrador.html" class="logo">
+                <img src="../../imgs/logo.jpg" alt="Sport Shop Logo">
+            </a>
 
-        <div class="search">
-            <input type="text" placeholder="¿Qué producto estás buscando?">
-        </div>
-
-        <div class="links-usuario">
-            <div class="menu-dropdown">
-                <a href="#" class="btn-dropdown">Panel Administrativo </a>
-                <ul class="content-dropdown">
-                    <li><a href="frmCrearProducto.html">Crear Producto</a></li>
-                    <li><a href="#">Editar Producto</a></li>
-                    <li><a href="#">Activar / Desactivar Producto</a></li>
-                    <li><a href="#">Ver Inventario</a></li>
-                    <li><a href="#">Ajustar Inventario</a></li>
-                    <li><a href="frmListadoOrdenes.html">Ver Listado de Órdenes</a></li>
-                    <li><a href="#">Cambiar Estado de una Orden</a></li>
-                    <li><a href="#">Ver Dashboard de Resumen</a></li>
-                    <li><a href="#">Gestionar Categorías</a></li>
-                </ul>
-            </div>
-            <a href="#">Logout</a>
-        </div>
-    </div>
-
-    <nav class="nav-categorias">
-        <ul>
-            <li><a href="#">Fútbol</a></li>
-            <li><a href="#">Gym</a></li>
-            <li><a href="#">Basquetbol</a></li>
-            <li><a href="#">Boxeo</a></li>
-            <li><a href="#">Ropa deportiva</a></li>
-            <li><a href="#">Calzado</a></li>
-            <li><a href="#">Accesorios</a></li>
-        </ul>
-    </nav>
-</header>
-
-<main class="main-content">
-    <h1 class="section-title">Editar Producto</h1>
-
-    <form class="create-product-form">
-        <div class="form-grid">
-
-            <!-- Columna Izquierda: Campos de Texto -->
-            <div class="form-section">
-                <div class="form-group row">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" class="input-rounded">
-                </div>
-
-                <div class="form-group stacked">
-                    <label for="descripcion">Descripcion:</label>
-                    <textarea id="descripcion" name="descripcion" class="textarea-rounded" rows="4"></textarea>
-                </div>
-
-                <div class="form-group row">
-                    <label for="precio">Precio: $</label>
-                    <input type="text" id="precio" name="precio" class="input-rounded input-short">
-                </div>
-
-                <div class="form-group row">
-                    <label for="categoria">Categoria:</label>
-                    <select id="categoria" name="categoria" class="select-rounded">
-                        <option value=""></option>
-                    </select>
-                </div>
-
-                <div class="form-group row">
-                    <label for="stock">Stock Inicial:</label>
-                    <input type="text" id="stock" name="stock" class="input-rounded input-short">
-                </div>
+            <div class="search">
+                <input type="text" placeholder="¿Qué producto estás buscando?">
             </div>
 
-            <!-- Columna Derecha: Vista previa de Imagen y Carga -->
-            <div class="form-section image-upload-card">
-                <div class="image-preview-box">
+            <div class="links-usuario">
+                <div class="menu-dropdown">
+                    <a href="#" class="btn-dropdown">Panel Administrativo </a>
+                    <ul class="dropdown-content">
+                        <li><a href="frmCrearProducto.html">Crear Producto</a></li>
+                        <li><a href="frmEditarProducto.html">Editar Producto</a></li>
+                        <li><a href="frmActivarDesactivar.html">Activar / Desactivar Producto</a></li>
+                        <li><a href="frmInventario.html">Ver Inventario</a></li>
+                        <li><a href="frmAjustarInventario.html">Ajustar Inventario</a></li>
+                        <li><a href="frmListadoOrdenes.html">Ver Listado de Órdenes</a></li>
+                        <li><a href="#">Cambiar Estado de una Orden</a></li>
+                        <li><a href="#">Ver Dashboard de Resumen</a></li>
+                        <li><a href="frmGestionarCategorias.html">Gestionar Categorías</a></li>
+                    </ul>
                 </div>
-                <label for="file-input" class="btn-select-img">Seleccionar Imagen</label>
-                <input type="file" id="file-input" accept="image/*" style="display: none;">
+                <a href="#">Logout</a>
+            </div>
+        </div>
+
+        <nav class="nav-categorias">
+            <ul>
+                <li><a href="#">Fútbol</a></li>
+                <li><a href="#">Gym</a></li>
+                <li><a href="#">Basquetbol</a></li>
+                <li><a href="#">Boxeo</a></li>
+                <li><a href="#">Ropa deportiva</a></li>
+                <li><a href="#">Calzado</a></li>
+                <li><a href="#">Accesorios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h1 class="section-title">Editar Producto</h1>
+
+        <form class="create-product-form">
+            <div class="form-grid">
+
+                <div class="form-section">
+                    <div class="form-group row">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" class="input-rounded">
+                    </div>
+
+                    <div class="form-group stacked">
+                        <label for="descripcion">Descripcion:</label>
+                        <textarea id="descripcion" name="descripcion" class="textarea-rounded" rows="4"></textarea>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="precio">Precio: $</label>
+                        <input type="text" id="precio" name="precio" class="input-rounded input-short">
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="categoria">Categoria:</label>
+                        <select id="categoria" name="categoria" class="select-rounded">
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="stock">Stock Inicial:</label>
+                        <input type="text" id="stock" name="stock" class="input-rounded input-short">
+                    </div>
+                </div>
+
+                <div class="form-section image-upload-card">
+                    <div class="image-preview-box">
+                    </div>
+                    <label for="file-input" class="btn-select-img">Seleccionar Imagen</label>
+                    <input type="file" id="file-input" accept="image/*" style="display: none;">
+                </div>
+
             </div>
 
+            <div class="form-actions">
+                <button type="submit" class="btn-submit">Guardar Cambios</button>
+            </div>
+        </form>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-benefit">
+            <span>Envíos gratis</span>
+            <small>En compras mayores $500</small>
         </div>
-
-        <div class="form-btn-create">
-            <button type="submit" class="btn-create">Crear Producto</button>
+        <div class="footer-benefit">
+            <span>Compras seguras</span>
+            <small>En compras mayores $500</small>
         </div>
-    </form>
-</main>
+        <div class="footer-benefit">
+            <span>Compras seguras</span>
+            <small>En compras mayores $500</small>
+        </div>
+    </footer>
 
-<footer class="main-footer">
-    <div class="footer-benefit">
-        <span>Envíos gratis</span>
-        <small>En compras mayores $500</small>
-    </div>
-    <div class="footer-benefit">
-        <span>Compras seguras</span>
-        <small>En compras mayores $500</small>
-    </div>
-    <div class="footer-benefit">
-        <span>Compras seguras</span>
-        <small>En compras mayores $500</small>
-    </div>
-</footer>
-
-</body>
+    </body>
 
 </html>>
