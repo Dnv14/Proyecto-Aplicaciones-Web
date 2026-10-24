@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sport Shop - Asignar Productos</title>
+
+    <link rel="stylesheet" href="../../static/styles/styles.css">
+</head>
+<header class="main-header">
+    <div class="header-top">
+        <a href="frmPrincipalAdministrador.html" class="logo">
+            <img src="../../imgs/logo.jpg" alt="Sport Shop Logo">
+        </a>
+        <div class="search">
+            <input type="text" placeholder="¿Qué producto estás buscando?">
+        </div>
+        <div class="links-usuario">
+            <div class="menu-dropdown">
+                <a href="#" class="btn-dropdown">Panel Administrativo </a>
+                <ul class="dropdown-content">
+                    <li><a href="frmCrearProducto.html">Crear Producto</a></li>
+                    <li><a href="frmEditarProducto.html">Editar Producto</a></li>
+                    <li><a href="frmActivarDesactivar.html">Activar / Desactivar Producto</a></li>
+                    <li><a href="frmInventario.html">Ver Inventario</a></li>
+                    <li><a href="frmAjustarInventario.html">Ajustar Inventario</a></li>
+                    <li><a href="frmListadoOrdenes.html">Ver Listado de Órdenes</a></li>
+                    <li><a href="#">Cambiar Estado de una Orden</a></li>
+                    <li><a href="#">Ver Dashboard de Resumen</a></li>
+                    <li><a href="frmGestionarCategorias.html">Gestionar Categorías</a></li>
+                </ul>
+            </div>
+            <a href="#">Logout</a>
+        </div>
+    </div>
+    <nav class="nav-categorias">
+        <ul>
+            <li><a href="#">Fútbol</a></li>
+            <li><a href="#">Gym</a></li>
+            <li><a href="#">Basquetbol</a></li>
+            <li><a href="#">Boxeo</a></li>
+            <li><a href="#">Ropa deportiva</a></li>
+            <li><a href="#">Calzado</a></li>
+            <li><a href="#">Accesorios</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="contenido-principal">
+    <h1 class="titulo-seccion">Asignar Productos</h1>
+    <section class="contenedor-asignar-productos">
+        <div class="encabezado-asignar-productos">
+            <div class="buscador-productos">
+                <input
+                        type="text"
+                        id="buscarProducto"
+                        placeholder="🔍  Buscar productos"
+                        aria-label="Buscar productos">
+            </div>
+        </div>
+        <div class="tabla-asignar-productos-contenedor">
+            <table class="tabla-asignar-productos">
+                <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Seleccionar</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Camiseta manga larga nike</td>
+                    <td>$399</td>
+                    <td>
+                        <label class="seleccion-producto">
+                            <input
+                                    type="checkbox"
+                                    name="productos"
+                                    value="1"
+                                    checked>
+                            <span>Seleccionar</span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Camiseta maga corta adidas</td>
+                    <td>$299</td>
+                    <td>
+                        <label class="seleccion-producto">
+                            <input
+                                    type="checkbox"
+                                    name="productos"
+                                    value="2"
+                                    checked>
+                            <span>Seleccionar</span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Camiseta de compresion nike</td>
+                    <td>$250</td>
+                    <td>
+                        <label class="seleccion-producto">
+                            <input
+                                    type="checkbox"
+                                    name="productos"
+                                    value="3">
+                            <span>Seleccionar</span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Camiseta de futbol F.C Barcelona</td>
+                    <td>$1200</td>
+                    <td>
+                        <label class="seleccion-producto">
+                            <input
+                                    type="checkbox"
+                                    name="productos"
+                                    value="4"
+                                    checked>
+                            <span>Seleccionar</span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Camiseta negra de licra</td>
+                    <td>$150</td>
+                    <td>
+                        <label class="seleccion-producto">
+                            <input
+                                    type="checkbox"
+                                    name="productos"
+                                    value="5">
+                            <span>Seleccionar</span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Camiseta adidas de compresion</td>
+                    <td>$320</td>
+                    <td>
+                        <label class="seleccion-producto">
+                            <input
+                                    type="checkbox"
+                                    name="productos"
+                                    value="6"
+                                    checked>
+                            <span>Seleccionar</span>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Camisa tipo polo adidas</td>
+                    <td>$500</td>
+                    <td>
+                        <label class="seleccion-producto">
+                            <input
+                                    type="checkbox"
+                                    name="productos"
+                                    value="7">
+                            <span>Seleccionar</span>
+                        </label>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="acciones-asignar-productos">
+            <button
+                    type="button"
+                    class="boton-cancelar"
+                    onclick="window.location.href='frmGestionarCategorias.html'">
+                Cancelar
+            </button>
+            <button
+                    type="button"
+                    class="boton-asignar-productos"
+                    id="btnConfirmarAsignacion">
+                Asignar Productos
+            </button>
+        </div>
+    </section>
+</main>
+<body>
+
+</body>
+</html>

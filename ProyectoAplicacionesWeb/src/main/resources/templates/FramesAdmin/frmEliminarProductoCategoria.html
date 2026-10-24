@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sport Shop - Reasignar Producto</title>
+
+    <link rel="stylesheet" href="../../static/styles/styles.css">
+</head>
+<header class="main-header">
+    <div class="header-top">
+        <a href="frmPrincipalAdministrador.html" class="logo">
+            <img src="../../imgs/logo.jpg" alt="Sport Shop Logo">
+        </a>
+        <div class="search">
+            <input type="text" placeholder="¿Qué producto estás buscando?">
+        </div>
+        <div class="links-usuario">
+            <div class="menu-dropdown">
+                <a href="#" class="btn-dropdown">Panel Administrativo </a>
+                <ul class="dropdown-content">
+                    <li><a href="frmCrearProducto.html">Crear Producto</a></li>
+                    <li><a href="frmEditarProducto.html">Editar Producto</a></li>
+                    <li><a href="frmActivarDesactivar.html">Activar / Desactivar Producto</a></li>
+                    <li><a href="frmInventario.html">Ver Inventario</a></li>
+                    <li><a href="frmAjustarInventario.html">Ajustar Inventario</a></li>
+                    <li><a href="frmListadoOrdenes.html">Ver Listado de Órdenes</a></li>
+                    <li><a href="#">Cambiar Estado de una Orden</a></li>
+                    <li><a href="#">Ver Dashboard de Resumen</a></li>
+                    <li><a href="frmGestionarCategorias.html">Gestionar Categorías</a></li>
+                </ul>
+            </div>
+            <a href="#">Logout</a>
+        </div>
+    </div>
+    <nav class="nav-categorias">
+        <ul>
+            <li><a href="#">Fútbol</a></li>
+            <li><a href="#">Gym</a></li>
+            <li><a href="#">Basquetbol</a></li>
+            <li><a href="#">Boxeo</a></li>
+            <li><a href="#">Ropa deportiva</a></li>
+            <li><a href="#">Calzado</a></li>
+            <li><a href="#">Accesorios</a></li>
+        </ul>
+    </nav>
+</header>
+<body>
+<main class="contenido-principal">
+    <h1 class="titulo-seccion">
+        Categoría: Fútbol
+    </h1>
+    <section class="contenedor-reasignar-producto">
+        <h2>Reasignar producto</h2>
+        <form id="formReasignarProducto">
+            <div class="campo-reasignar">
+                <label for="nombreProducto">
+                    Nombre del Producto
+                </label>
+                <input
+                        type="text"
+                        id="nombreProducto"
+                        name="nombreProducto"
+                        value="Taquetes gama media"
+                        readonly>
+            </div>
+            <div class="campo-reasignar">
+                <label for="precioProducto">
+                    Precio
+                </label>
+                <input
+                        type="text"
+                        id="precioProducto"
+                        name="precioProducto"
+                        value="$ 2,099"
+                        readonly>
+            </div>
+            <div class="campo-reasignar campo-categoria">
+                <label for="categoriaProducto" class="etiqueta-oculta">
+                    Seleccione la categoría
+                </label>
+                <select
+                        id="categoriaProducto"
+                        name="categoriaProducto"
+                        required>
+                    <option value="" selected disabled>
+                        Seleccione la categoría
+                    </option>
+                    <option value="2">Gym</option>
+                    <option value="3">Basquetbol</option>
+                    <option value="4">Boxeo</option>
+                    <option value="5">Ropa deportiva</option>
+                    <option value="6">Calzado</option>
+                    <option value="7">Accesorios</option>
+                </select>
+            </div>
+            <div class="acciones-reasignar">
+                <button
+                        type="button"
+                        class="boton-cancelar-reasignar"
+                        onclick="window.location.href='frmGestionarCategorias.html'">
+                    Cancelar
+                </button>
+                <button
+                        type="submit"
+                        class="boton-confirmar-reasignar">
+                    Reasignar Producto
+                </button>
+            </div>
+        </form>
+    </section>
+</main>
+</body>
+</html>

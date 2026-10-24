@@ -70,7 +70,9 @@
 
 .tabla-categorias-contenedor {
     width: 100%;
-    overflow-x: auto;
+    max-height: 280px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .tabla-categorias {
@@ -78,6 +80,13 @@
     border-collapse: collapse;
     table-layout: fixed;
     font-size: 11px;
+}
+
+.tabla-categorias thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #ffffff;
 }
 
 .tabla-categorias thead th {
@@ -147,4 +156,10 @@
 
 .boton-productos {
     color: #333333;
+}
+
+.boton-productos {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
 }

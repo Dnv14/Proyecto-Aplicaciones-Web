@@ -1,0 +1,154 @@
+/* Espacio entre el título y el contenedor */
+.titulo-seccion {
+    margin-bottom: 25px;
+}
+
+/* Espacio interior del contenedor */
+.contenedor-asignar-productos {
+    padding: 25px;
+}
+
+/* Separación entre el buscador y la tabla */
+.encabezado-asignar-productos {
+    margin-bottom: 22px;
+}
+
+/* Más espacio entre las filas de la tabla */
+.tabla-asignar-productos th,
+.tabla-asignar-productos td {
+    padding: 14px 12px;
+}
+
+/* Separación entre los botones inferiores */
+.acciones-asignar-productos {
+    margin-top: 25px;
+    gap: 15px;
+}
+
+```css
+/* CONTENEDOR PRINCIPAL */
+.contenedor-asignar-productos {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 18px 20px;
+    border: 1px solid #aeb4bf;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+/* TÍTULO */
+.titulo-seccion {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+/* BUSCADOR */
+.encabezado-asignar-productos {
+    margin-bottom: 10px;
+}
+
+.buscador-productos {
+    width: 65%;
+    max-width: 350px;
+}
+
+.buscador-productos input {
+    width: 100%;
+    height: 30px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f1f2f4;
+    font-size: 0.75rem;
+}
+
+/* TABLA */
+.tabla-asignar-productos-contenedor {
+    width: 100%;
+    max-height: 230px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.tabla-asignar-productos {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: left;
+}
+
+/* ENCABEZADOS */
+.tabla-asignar-productos th {
+    padding: 9px 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* CELDAS */
+.tabla-asignar-productos td {
+    padding: 8px;
+    font-size: 0.72rem;
+    border-bottom: 1px solid #eeeeee;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* DISTRIBUCIÓN DE COLUMNAS */
+.tabla-asignar-productos th:first-child,
+.tabla-asignar-productos td:first-child {
+    width: 45%;
+}
+
+.tabla-asignar-productos th:nth-child(2),
+.tabla-asignar-productos td:nth-child(2) {
+    width: 20%;
+}
+
+.tabla-asignar-productos th:last-child,
+.tabla-asignar-productos td:last-child {
+    width: 35%;
+}
+
+/* CHECKBOX Y TEXTO */
+.seleccion-producto {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.65rem;
+    white-space: nowrap;
+}
+
+.seleccion-producto input {
+    width: 11px;
+    height: 11px;
+    margin: 0;
+    accent-color: #111827;
+}
+
+/* BOTONES INFERIORES */
+.acciones-asignar-productos {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.boton-cancelar,
+.boton-asignar-productos {
+    padding: 7px 13px;
+    border: none;
+    border-radius: 20px;
+    background-color: #101629;
+    color: #fff;
+    font-size: 0.68rem;
+    cursor: pointer;
+}
+
+.boton-cancelar:hover,
+.boton-asignar-productos:hover {
+    background-color: #293548;
+}
+```
