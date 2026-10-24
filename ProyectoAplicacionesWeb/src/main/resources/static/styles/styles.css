@@ -17,6 +17,8 @@ llamemos al styles*/
 @import "activar-desactivar.css";
 @import "asignar-productos.css";
 @import "reasignar-producto.css";
+@import "editar-categoria.css";
+@import "crear-categoria.css";
 
 
 * {
