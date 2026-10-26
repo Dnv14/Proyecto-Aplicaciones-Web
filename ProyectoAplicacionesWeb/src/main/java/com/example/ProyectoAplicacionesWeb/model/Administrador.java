@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Table(name = "Administradores")
 @PrimaryKeyJoinColumn(name = "id_usuario")
 public class Administrador extends Usuario {

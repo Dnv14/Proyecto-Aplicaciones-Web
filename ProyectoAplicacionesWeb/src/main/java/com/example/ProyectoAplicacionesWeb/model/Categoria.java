@@ -1,12 +1,16 @@
 package com.example.ProyectoAplicacionesWeb.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.List;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "Categorias")
 public class Categoria {
