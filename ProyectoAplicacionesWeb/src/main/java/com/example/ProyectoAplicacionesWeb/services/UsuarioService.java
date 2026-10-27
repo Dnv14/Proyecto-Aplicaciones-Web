@@ -26,7 +26,7 @@ public class UsuarioService {
     }
 
     public Usuario autenticarUsuario(String email, String password) {
-        Optional<Usuario> usuarioOpt = usuarioRepository.findByEmail(email);
+        Optional<Usuario> usuarioOpt = usuarioRepository.findByCorreo(email);
 
         if (usuarioOpt.isPresent()) {
             Usuario usuario = usuarioOpt.get();

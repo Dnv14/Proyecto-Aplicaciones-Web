@@ -24,13 +24,13 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public String procesarLogin(@RequestParam("email") String email,
+    public String procesarLogin(@RequestParam("correo") String correo,
                                 @RequestParam("contrasenia") String contrasenia, HttpSession session, Model model) {
 
-        Usuario usuario = usuarioService.autenticarUsuario(email, contrasenia);
+        Usuario usuario = usuarioService.autenticarUsuario(correo, contrasenia);
 
         if (usuario != null) {
-            session.setAttribute("usuario_id", usuario);
+            session.setAttribute("usuario_id", usuario.getIdUsuario());
             return "redirect:/frmPrincipalAdministrador";
         } else {
             model.addAttribute("error",
@@ -49,13 +49,13 @@ public class AuthController {
     @PostMapping("/registro")
     public String procesarRegistro(Usuario usuario) {
         usuarioService.registrarUsuario(usuario);
-        return "redirect:/frmLogin?registrado=true";
+        return "redirect:/login?registrado=true";
     }
 
     //logout
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/"; //TODO: no se que pagina poner como default
+        return "redirect:/login";
     }
 }
