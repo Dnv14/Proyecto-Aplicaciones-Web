@@ -1,9 +1,7 @@
 package com.example.ProyectoAplicacionesWeb.controllers;
 
-import com.example.ProyectoAplicacionesWeb.model.Usuario;
-import com.example.ProyectoAplicacionesWeb.services.AdministradorService;
+import com.example.ProyectoAplicacionesWeb.model.Cliente;
 import com.example.ProyectoAplicacionesWeb.services.UsuarioService;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,39 +21,27 @@ public class AuthController {
         return "frmLogin";
     }
 
-    @PostMapping("/login")
-    public String procesarLogin(@RequestParam("correo") String correo,
-                                @RequestParam("contrasenia") String contrasenia, HttpSession session, Model model) {
-
-        Usuario usuario = usuarioService.autenticarUsuario(correo, contrasenia);
-
-        if (usuario != null) {
-            session.setAttribute("usuario_id", usuario.getIdUsuario());
-            return "redirect:/frmPrincipalAdministrador";
-        } else {
-            model.addAttribute("error",
-                    "Credenciales incorrectas");
-            return "frmLogin";
-        }
-    }
-
     //Registro
     @GetMapping("/registro")
     public String mostrarRegistro(Model model) {
-        model.addAttribute("usuario", new Usuario());
+        model.addAttribute("cliente", new Cliente());
         return "frmRegistro";
     }
 
     @PostMapping("/registro")
-    public String procesarRegistro(Usuario usuario) {
-        usuarioService.registrarUsuario(usuario);
+    public String procesarRegistro(Cliente cliente,
+                                   @RequestParam("confirmarCorreo") String correo,
+                                   @RequestParam("confirmarContrasenia") String contrasenia){
+        if(!cliente.getCorreo().equals(correo)) {
+            return "redirect:/registro?errorCorreo";
+        }
+        if(!cliente.getContrasenia().equals(contrasenia)) {
+            return "redirect:/registro?errorContrasenia";
+        }
+        if (usuarioService.existeCorreo(cliente.getCorreo())) {
+            return "redirect:/registro?errorCorreoExistente";
+        }
+        usuarioService.registrarUsuario(cliente);
         return "redirect:/login?registrado=true";
-    }
-
-    //logout
-    @GetMapping("/logout")
-    public String logout(HttpSession session) {
-        session.invalidate();
-        return "redirect:/login";
     }
 }

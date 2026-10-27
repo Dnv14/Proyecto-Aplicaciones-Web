@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Sport Shop - Inicio</title>
-    <link rel="stylesheet" href="../../static/styles/styles.css">
+    <link rel="stylesheet" th:href="@{/styles/styles.css}">
 </head>
 
 <body>
     <header class="main-header">
         <div class="header-top">
             <a href="frmPrincipalUsuario.html" class="logo">
-                <img src="../../imgs/logo.jpg" alt="Sport Shop Logo">
+                <img th:src="@{/imgs/logo.jpg}" alt="Sport Shop Logo">
             </a>
 
             <div class="search">
@@ -20,8 +20,10 @@
 
             <div class="links-usuario">
                 <a href="#">Historial Pedidos</a>
-                <a href="frmCarritoUsuario.html">Carrito</a>
-                <a href="../frmLogin.html">Login</a>
+                <a th:href="@{/registro}">Registroooooooooooo</a>
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit">Cerrar sesión</button>
+                </form>
             </div>
         </div>
 
@@ -48,7 +50,7 @@
 
             <article class="product-card">
                 <div class="card-image">
-                    <img src="../../imgs/balonFutbol.png" alt="Balón de fútbol Pro Match">
+                    <img src="../../static/imgs/balonFutbol.png" alt="Balón de fútbol Pro Match">
                 </div>
                 <div class="card-body">
                     <h3>Balón de fútbol Pro Match</h3>
@@ -59,7 +61,7 @@
 
             <article class="product-card">
                 <div class="card-image">
-                    <img src="../../imgs/balonFutbol.png" alt="Balón de fútbol Pro Match">
+                    <img src="../../static/imgs/balonFutbol.png" alt="Balón de fútbol Pro Match">
                 </div>
                 <div class="card-body">
                     <h3>Balón de fútbol Pro Match</h3>
@@ -70,7 +72,7 @@
 
             <article class="product-card">
                 <div class="card-image">
-                    <img src="../../imgs/balonFutbol.png" alt="Balón de fútbol Pro Match">
+                    <img src="../../static/imgs/balonFutbol.png" alt="Balón de fútbol Pro Match">
                 </div>
                 <div class="card-body">
                     <h3>Balón de fútbol Pro Match</h3>

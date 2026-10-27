@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sport Shop - Registro</title>
-    <link rel="stylesheet" href="../static/styles/styles.css">
+    <link rel="stylesheet" th:href="@{/styles/styles.css}">
 </head>
 
 <body>
-
-
     <main class="auth-container">
         <section class="auth-card">
 
             <div class="auth-logo">
-                <img src="../imgs/logo.jpg" alt="Sport Shop Logo">
+                <img th:src="@{/imgs/logo.jpg}" alt="Sport Shop Logo">
             </div>
 
             <h2 class="auth-title">Registro</h2>
+            <p th:if="${param.errorCorreo}">Los correos no coinciden</p>
+            <p th:if="${param.errorContrasenia}">Las contraseñas no coinciden</p>
+            <p th:if="${param.errorCorreoExistente}">El correo ya fue registrado</p>
 
-            <form class="auth-form" action="/crear-cuenta" method="post">
+            <form class="auth-form" th:action="@{/registro}" method="post">
 
                 <div class="form-group">
-                    <label for="nombreCompleto">Nombre Completo:</label>
-                    <input type="text" id="nombreCompleto" name="nombreCompleto" placeholder="Value" required
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Value" required
                         minlength="3">
                 </div>
 

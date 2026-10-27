@@ -19,18 +19,19 @@ public class SecurityConfig {
                 //define quien puede acceder a cada ruta
                 .authorizeHttpRequests(auth -> auth
                         //permite abrir el login, los estilos, y las imagenes sin iniciar sesion
-                        .requestMatchers("/admin/login", "/styles/**", "/imgs/**").permitAll()
+                        .requestMatchers("/login", "/registro" , "/styles/**", "/imgs/**").permitAll()
                         //solo permite entrar al panel a los ususarios con el rol de admin
                         .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/cliente/**").hasRole("CLIENTE")
                         //deja punlicas las demas rutas
                         .anyRequest().permitAll()
                 )
                 //configuramos el inicio de sesion mediante el formulario
                 .formLogin(login -> login
                         //direccion donde el controlador mostrara el formulario
-                        .loginPage("/admin/login")
+                        .loginPage("/login")
                         //direccion que  recibe los datos del formulario por post
-                        .loginProcessingUrl("/admin/login")
+                        .loginProcessingUrl("/login")
                         //nombre del intput que tiene el correo
                         .usernameParameter("correo")
                         //nombre del intput que tiene la contraseña
@@ -45,16 +46,16 @@ public class SecurityConfig {
                             response.sendRedirect(request.getContextPath()+destino);
                         })
                         //si las credenciales fallan vuelve al login con el parametro error
-                        .failureUrl("/admin/login?error")
+                        .failureUrl("/login?error")
                         //permite acceder a las rutas del login sin estar autenticado
                         .permitAll()
                 )
                 //configuracion del cierre de sesion
                 .logout(logout -> logout
                         //direccion a la que se enviara un post para cerrar sesion
-                        .logoutUrl("/admin/logout")
+                        .logoutUrl("/logout")
                         //despues de salir vuelve al lgin
-                        .logoutSuccessUrl("/admin/login?logout")
+                        .logoutSuccessUrl("/login?logout")
                         //invalida la sesion http y elimina sus datos
                         .invalidateHttpSession(true)
                         //permitimos acceder a las rutas de cierre de sesion
