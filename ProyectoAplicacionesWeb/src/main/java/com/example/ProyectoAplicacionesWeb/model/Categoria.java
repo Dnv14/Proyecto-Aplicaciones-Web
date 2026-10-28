@@ -1,5 +1,6 @@
 package com.example.ProyectoAplicacionesWeb.model;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import jakarta.persistence.*;
@@ -18,13 +19,15 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCategoria;
 
-    @Column(length = 50)
+    @NotBlank
+    @Column(nullable = false,length = 50)
     private String nombre;
 
     @Column(length = 255)
     private String descripcion;
 
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "categoria")
     @ToString.Exclude
     private List<Producto> productos;
+
 }

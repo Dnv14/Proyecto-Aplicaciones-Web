@@ -2,6 +2,8 @@ package com.example.ProyectoAplicacionesWeb.model;
 
 import com.example.ProyectoAplicacionesWeb.model.enums.TipoMovimiento;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,16 +20,20 @@ public class Inventario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idInventario;
 
-    @Column
+    @NotNull
+    @Min(1)
+    @Column(nullable = false)
     private Integer cantidad;
 
-    @Column
+    @NotNull
+    @Column(nullable = false)
     private LocalDate fecha;
 
     @Column(length = 255)
     private String comentario;
 
-    @Column
+    @NotNull
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private TipoMovimiento tipoMovimiento;
 

@@ -51,36 +51,40 @@
 
     <main class="main-content">
         <h1 class="section-title">Crear Producto</h1>
-        <form class="create-product-form">
+        <form th:action="@{/admin/crearProducto}" method="post" enctype="multipart/form-data" class="create-product-form">
             <div class="form-grid">
                 <div class="form-section">
                     <div class="form-group row">
-                        <label for="name">Nombre:</label>
-                        <input type="text" id="name" name="name" class="input-rounded">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" class="input-rounded" required>
                     </div>
                     <div class="form-group stacked">
-                        <label for="description">Descripcion:</label>
-                        <textarea id="description" name="description" class="textarea-rounded" rows="4"></textarea>
+                        <label for="descripcion">Descripcion:</label>
+                        <textarea id="descripcion" name="descripcion" class="textarea-rounded" rows="4" maxlength="255"></textarea>
                     </div>
                     <div class="form-group row">
-                        <label for="price">Precio: $</label>
-                        <input type="text" id="price" name="price" class="input-rounded input-short">
+                        <label for="precio">Precio: $</label>
+                        <input type="number" id="precio" name="precio" class="input-rounded input-short" min="0.01" step="0.01" required>
                     </div>
                     <div class="form-group row">
-                        <label for="category">Categoria:</label>
-                        <select id="category" name="category" class="select-rounded">
-                            <option value=""></option>
+                        <label for="categoria">Categoría:</label>
+                        <select id="categoria" name="categoria.idCategoria" class="select-rounded" required>
+                            <option value="" selected disabled>Selecciona una categoría</option>
+                            <option th:each="categoria : ${categorias}"
+                                    th:value="${categoria.idCategoria}"
+                                    th:text="${categoria.nombre}">
+                            </option>
                         </select>
                     </div>
                     <div class="form-group row">
                         <label for="stock">Stock Inicial:</label>
-                        <input type="text" id="stock" name="stock" class="input-rounded input-short">
+                        <input type="number" id="stock" name="stock" class="input-rounded input-short" min="0" step="1" required>
                     </div>
                 </div>
                 <div class="form-section image-upload-card">
                     <div class="image-preview-box"></div>
                     <label for="file-input" class="btn-select-img">Seleccionar Imagen</label>
-                    <input type="file" id="file-input" name="image" accept="image/*" style="display: none;">
+                    <input type="file" id="file-input" name="imagenArchivo" accept="image/*" style="display: none;">
                 </div>
             </div>
             <div class="form-actions">

@@ -1,11 +1,13 @@
 package com.example.ProyectoAplicacionesWeb.model;
 
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -18,29 +20,29 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idProducto;
 
-    @Column(length = 50)
+    @Column(nullable = false, length = 50)
     private String nombre;
 
     @Column(length = 255)
     private String descripcion;
 
-    @Column
-    private Double precio;
+    @Column(nullable = false,precision = 10,scale = 2)
+    private BigDecimal precio;
 
     @Column(length = 255)
     private String imagen;
 
-    @Column
-    private Boolean activo;
+    @Column(nullable = false)
+    private Boolean activo=true;
 
-    @Column
+    @Column(nullable = false)
     private Integer stock;
 
     @ManyToOne
-    @JoinColumn(name = "id_categoria")
+    @JoinColumn(name = "id_categoria", nullable = false)
     private Categoria categoria;
 
-    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "producto")
     @ToString.Exclude
     private List<Inventario> historicoInventario;
 }
