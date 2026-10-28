@@ -15,15 +15,17 @@ public class CategoriaController {
     @Autowired
     private CategoriaService categoriaService;
 
+    @GetMapping("/admin/gestionarCategorias")
+    public String mostrarCategorias(Model model) {
+        model.addAttribute("categorias", categoriaService.findAll());
+        return "FramesAdmin/frmGestionarCategorias";
+    }
+
     @GetMapping("/admin/crearCategoria")
     public String crearCategoria(@ModelAttribute Categoria categoria) {
         categoriaService.crearCategoria(categoria);
         return "redirect:/admin/gestionCategorias";
     }
 
-    @GetMapping("admin/gestionarCategorias")
-    public String mostrarrCategorias(Model model) {
-        model.addAttribute("categorias",categoriaService.findAll());
-        return "FramesAdmin/frmGestionCategorias";
-    }
+
 }

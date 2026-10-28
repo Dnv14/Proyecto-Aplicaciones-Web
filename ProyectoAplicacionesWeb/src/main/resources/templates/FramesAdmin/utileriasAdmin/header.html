@@ -15,12 +15,10 @@
                     <div class="menu-dropdown">
                         <a href="#" class="btn-dropdown">Panel Administrativo </a>
                         <ul class="dropdown-content">
-                            <li><a th:href="@{/admin/productos}">Gestionar Productos</a></li>
-                            <li><a th:href="@{/admin/inventario}">Ajustar Inventario</a></li>
-                            <li><a th:href="@{/admin/ordenes}">Ver Listado de Órdenes</a></li>
-                            <li><a th:href="@{/admin/ordenes/estado}">Cambiar Estado de una Orden</a></li>
+                            <li><a th:href="@{/admin/productos}">Gestionar Inventario</a></li>
+                            <li><a th:href="@{/admin/ordenes}">Gestionar Ordenes</a></li>
                             <li><a th:href="@{/admin/dashboard}">Ver Dashboard de Resumen</a></li>
-                            <li><a th:href="@{/admin/categorias}">Gestionar Categorías</a></li>
+                            <li><a th:href="@{/admin/gestionarCategorias}">Gestionar Categorías</a></li>
                         </ul>
                     </div>
                     <form th:action="@{/logout}" method="post">
