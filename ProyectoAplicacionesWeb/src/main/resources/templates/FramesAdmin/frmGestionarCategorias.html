@@ -1,223 +1,178 @@
-
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head th:replace="~{utileriasAdmin/header :: headAdmin('Sport Shop | Gestionar Categorías')}"></head>
 
-    <title>Sport Shop | Gestionar Categorías</title>
-    <link rel="stylesheet" th:href="@{/styles/styles.css}">
-</head>
-<body>
-<header class="main-header">
-    <div class="header-top">
-        <a th:href="@{/admin}" class="logo">
-            <img th:src="@{/imgs/logo.jpg}" alt="Sport Shop Logo">
-        </a>
+    <body>
+        <header th:replace="~{utileriasAdmin/header :: headerAdmin}"></header>
 
-        <div class="search">
-            <input type="text" placeholder="¿Qué producto estás buscando?">
-        </div>
+        <main class="contenido-principal">
 
-        <div class="links-usuario">
-            <div class="menu-dropdown">
-                <a href="#" class="btn-dropdown">Panel Administrativo </a>
-                <ul class="dropdown-content">
-                    <li><a th:href="@{/admin/productos}">Gestionar Productos</a></li>
-                    <li><a href="frmAjustarInventario.html">Ajustar Inventario</a></li>
-                    <li><a href="frmListadoOrdenes.html">Ver Listado de Órdenes</a></li>
-                    <li><a href="#">Cambiar Estado de una Orden</a></li>
-                    <li><a href="#">Ver Dashboard de Resumen</a></li>
-                    <li><a href="frmGestionarCategorias.html">Gestionar Categorías</a></li>
-                </ul>
-            </div>
-            <form th:action="@{/logout}" method="post">
-                <button type="submit">Cerrar sesión</button>
-            </form>
-        </div>
-    </div>
+            <section class="presentacion">
+                <div>
+                    <span class="etiqueta">CATÁLOGO</span>
+                    <h1>Gestionar categorías</h1>
+                    <p>
+                        Organiza y administra las categorías de Sport Shop.
+                    </p>
+                </div>
 
-    <nav class="nav-categorias">
-        <ul>
-            <li><a href="#">Fútbol</a></li>
-            <li><a href="#">Gym</a></li>
-            <li><a href="#">Basquetbol</a></li>
-            <li><a href="#">Boxeo</a></li>
-            <li><a href="#">Ropa deportiva</a></li>
-            <li><a href="#">Calzado</a></li>
-            <li><a href="#">Accesorios</a></li>
-        </ul>
-    </nav>
-</header>
+                <a th:href="@{/admin/categorias/nueva}"
+                   class="boton boton-principal">
+                    <span aria-hidden="true">+</span>
+                    Nueva categoría
+                </a>
+            </section>
 
-<main class="contenido-principal">
-
-    <section class="presentacion">
-        <div>
-            <span class="etiqueta">CATÁLOGO</span>
-            <h1>Gestionar categorías</h1>
-            <p>
-                Organiza y administra las categorías de TheAmyLife.
-            </p>
-        </div>
-
-        <a th:href="@{/admin/categorias/nueva}"
-           class="boton boton-principal">
-            <span aria-hidden="true">+</span>
-            Nueva categoría
-        </a>
-    </section>
-
-    <div th:if="${mensaje}" class="alerta alerta-exito"
-         th:text="${mensaje}" role="status">
-    </div>
-
-    <div th:if="${error}" class="alerta alerta-error"
-         th:text="${error}" role="alert">
-    </div>
-
-    <section class="panel-categorias">
-
-        <div class="panel-encabezado">
-            <div>
-                <h2>Listado de categorías</h2>
-                <p>Consulta y administra tu catálogo.</p>
+            <div th:if="${mensaje}" class="alerta alerta-exito"
+                 th:text="${mensaje}" role="status">
             </div>
 
-            <label class="buscador">
-                <span aria-hidden="true">⌕</span>
-                <input type="search"
-                       id="buscarCategoria"
-                       placeholder="Buscar categoría..."
-                       aria-label="Buscar categoría">
-            </label>
-        </div>
+            <div th:if="${error}" class="alerta alerta-error"
+                 th:text="${error}" role="alert">
+            </div>
 
-        <div class="tabla-contenedor">
-            <table class="tabla-categorias">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Productos</th>
-                    <th>Acciones</th>
-                </tr>
-                </thead>
+            <section class="panel-categorias">
 
-                <tbody id="cuerpoCategorias">
+                <div class="panel-encabezado">
+                    <div>
+                        <h2>Listado de categorías</h2>
+                        <p>Consulta y administra tu catálogo.</p>
+                    </div>
 
-                <tr th:each="categoria : ${categorias}"
-                    class="fila-categoria">
+                    <label class="buscador">
+                        <span aria-hidden="true">⌕</span>
+                        <input type="search"
+                               id="buscarCategoria"
+                               placeholder="Buscar categoría..."
+                               aria-label="Buscar categoría">
+                    </label>
+                </div>
 
-                    <td class="id-categoria"
-                        th:text="${categoria.idCategoria}">
-                        1
-                    </td>
+                <div class="tabla-contenedor">
+                    <table class="tabla-categorias">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Productos</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
 
-                    <td class="nombre-categoria"
-                        th:text="${categoria.nombre}">
-                        Cuidado personal
-                    </td>
+                        <tbody id="cuerpoCategorias">
 
-                    <td th:text="${categoria.descripcion}">
-                        Productos para el cuidado diario.
-                    </td>
+                        <tr th:each="categoria : ${categorias}"
+                            class="fila-categoria">
 
-                    <td>
+                            <td class="id-categoria"
+                                th:text="${categoria.idCategoria}">
+                                1
+                            </td>
+
+                            <td class="nombre-categoria"
+                                th:text="${categoria.nombre}">
+                                Cuidado personal
+                            </td>
+
+                            <td th:text="${categoria.descripcion}">
+                                Productos para el cuidado diario.
+                            </td>
+
+                            <td>
                         <span class="contador-productos"
                               th:text="${categoria.productos == null
                                   ? 0 : #lists.size(categoria.productos)}">
                             0
                         </span>
-                    </td>
+                            </td>
 
-                    <td>
-                        <div class="acciones">
+                            <td>
+                                <div class="acciones">
 
-                            <a class="boton-accion boton-editar"
-                               th:href="@{/admin/categorias/{id}/editar(
-                                   id=${categoria.idCategoria})}"
-                               title="Editar categoría"
-                               aria-label="Editar categoría">
-                                ✎
-                            </a>
+                                    <a class="boton-accion boton-editar"
+                                       th:href="@{/admin/categorias/{id}/editar(id=${categoria.idCategoria})}"
+                                       title="Editar categoría"
+                                       aria-label="Editar categoría">
+                                        ✎
+                                    </a>
 
-                            <form th:action="@{/admin/categorias/{id}/eliminar(
-                                      id=${categoria.idCategoria})}"
-                                  method="post"
-                                  class="form-eliminar"
-                                  onsubmit="return confirm(
-                                      '¿Deseas eliminar esta categoría?');">
+                                    <form th:action="@{/admin/categorias/{id}/eliminar(id=${categoria.idCategoria})}"
+                                          method="post"
+                                          class="form-eliminar"
+                                          onsubmit="return confirm('¿Deseas eliminar esta categoría?');">
 
-                                <button type="submit"
-                                        class="boton-accion boton-eliminar"
-                                        title="Eliminar categoría"
-                                        aria-label="Eliminar categoría">
-                                    ×
-                                </button>
-                            </form>
+                                        <button type="submit"
+                                                class="boton-accion boton-eliminar"
+                                                title="Eliminar categoría"
+                                                aria-label="Eliminar categoría">
+                                            ×
+                                        </button>
+                                    </form>
 
-                        </div>
-                    </td>
-                </tr>
+                                </div>
+                            </td>
+                        </tr>
 
-                <tr th:if="${#lists.isEmpty(categorias)}"
-                    id="sinCategorias">
-                    <td colspan="5" class="tabla-vacia">
-                        <span class="icono-vacio">♡</span>
-                        <strong>Aún no hay categorías</strong>
-                        <p>Agrega una categoría para comenzar.</p>
-                    </td>
-                </tr>
+                        <tr th:if="${#lists.isEmpty(categorias)}"
+                            id="sinCategorias">
+                            <td colspan="5" class="tabla-vacia">
+                                <span class="icono-vacio">♡</span>
+                                <strong>Aún no hay categorías</strong>
+                                <p>Agrega una categoría para comenzar.</p>
+                            </td>
+                        </tr>
 
-                </tbody>
-            </table>
-        </div>
+                        </tbody>
+                    </table>
+                </div>
 
-        <div id="sinResultados" class="sin-resultados" hidden>
-            No se encontraron categorías con ese nombre.
-        </div>
+                <div id="sinResultados" class="sin-resultados" hidden>
+                    No se encontraron categorías con ese nombre.
+                </div>
 
-        <div class="pie-panel">
+                <div class="pie-panel">
             <span>
                 Categorías registradas:
-                <strong th:text="${#lists.size(categorias)}">0</strong>
+                <strong th:text="${categorias != null ? #lists.size(categorias) : 0}">0</strong>
             </span>
-        </div>
+                </div>
 
-    </section>
-</main>
+            </section>
+        </main>
 
-<script>
-    const buscador = document.getElementById("buscarCategoria");
-    const filas = document.querySelectorAll(".fila-categoria");
-    const sinResultados = document.getElementById("sinResultados");
-    const sinCategorias = document.getElementById("sinCategorias");
+        <script>
+            const buscador = document.getElementById("buscarCategoria");
+            const filas = document.querySelectorAll(".fila-categoria");
+            const sinResultados = document.getElementById("sinResultados");
+            const sinCategorias = document.getElementById("sinCategorias");
 
-    buscador.addEventListener("input", function () {
-        const texto = this.value.trim().toLocaleLowerCase();
-        let visibles = 0;
+            if (buscador) {
+                buscador.addEventListener("input", function () {
+                    const texto = this.value.trim().toLocaleLowerCase();
+                    let visibles = 0;
 
-        filas.forEach(function (fila) {
-            const contenido = fila.textContent.toLocaleLowerCase();
-            const coincide = contenido.includes(texto);
+                    filas.forEach(function (fila) {
+                        const contenido = fila.textContent.toLocaleLowerCase();
+                        const coincide = contenido.includes(texto);
 
-            fila.hidden = !coincide;
+                        fila.hidden = !coincide;
 
-            if (coincide) {
-                visibles++;
+                        if (coincide) {
+                            visibles++;
+                        }
+                    });
+
+                    if (sinResultados) {
+                        sinResultados.hidden = visibles !== 0 || filas.length === 0;
+                    }
+
+                    if (sinCategorias) {
+                        sinCategorias.hidden = texto.length > 0;
+                    }
+                });
             }
-        });
+        </script>
 
-        sinResultados.hidden =
-            visibles !== 0 || filas.length === 0;
-
-        if (sinCategorias) {
-            sinCategorias.hidden = texto.length > 0;
-        }
-    });
-</script>
-
-</body>
+    </body>
 </html>

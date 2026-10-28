@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-    <!-- Fragmento para reutilizar el <head> con estilos y título dinámico -->
-    <head th:fragment="headAdmin(titulo)">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title th:text="${titulo}">Sport Shop | Admin</title>
-        <link rel="stylesheet" th:href="@{/styles/styles.css}">
-    </head>
-
     <body>
-        <!-- header -->
         <header th:fragment="headerAdmin" class="main-header">
             <div class="header-top">
                 <a th:href="@{/admin}" class="logo">
@@ -51,6 +41,5 @@
                 </ul>
             </nav>
         </header>
-
     </body>
 </html>
