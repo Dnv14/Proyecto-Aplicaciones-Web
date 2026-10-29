@@ -78,6 +78,13 @@
     white-space: nowrap;
     vertical-align: middle;
 }
+.inventory-table tbody td {
+    border-bottom: none;
+}
+
+.inventory-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+}
 
 .inventory-table tbody tr:hover,
 .adjust-table tbody tr:hover {
@@ -194,9 +201,7 @@
     }
 
     .action-col {
-        display: flex;
-        align-items: center;
-        gap: 8px;
+        white-space: nowrap;
     }
 
     .input-capsule,

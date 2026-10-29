@@ -21,7 +21,7 @@ public class Inventario {
     private Long idInventario;
 
     @NotNull
-    @Min(1)
+    @Min(0)
     @Column(nullable = false)
     private Integer cantidad;
 
@@ -38,6 +38,6 @@ public class Inventario {
     private TipoMovimiento tipoMovimiento;
 
     @ManyToOne
-    @JoinColumn(name = "id_producto")
+    @JoinColumn(name = "id_producto", nullable = false)
     private Producto producto;
 }
