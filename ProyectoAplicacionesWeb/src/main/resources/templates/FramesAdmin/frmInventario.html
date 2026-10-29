@@ -44,7 +44,7 @@
                             <span th:if="${producto.activo == true and producto.stock > 0}" class="status-badge active">Activo</span>
                         </td>
                         <td class="action-col">
-                            <a th:href="@{/admin/editarProducto/{id}(id=${producto.idProducto})}" class="btn-edit-product"> Editar</a>
+                            <a th:href="@{/admin/productos/{id}/editar(id=${producto.idProducto})}" class="btn-edit-product">Editar</a>
                             <form th:action="@{/admin/productos/{id}/estado(id=${producto.idProducto})}" method="post">
                                 <button type="submit" th:if="${producto.activo == true}" class="btn-deactivate-product">Desactivar</button>
                                 <button type="submit" th:if="${producto.activo == false}" class="btn-activate-product">Activar</button>

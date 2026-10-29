@@ -47,6 +47,24 @@ public class ProductoController {
         return "redirect:/admin/productos";
     }
 
+    @GetMapping("/admin/productos/{id}/editar")
+    public String mostrarEditarProducto(@PathVariable Long id, Model model) {
+        Producto producto=productoService.obtenerProductoPorId(id).orElseThrow(()->new RuntimeException("Producto no encontrado"));
+        model.addAttribute("producto",producto);
+        model.addAttribute("categorias", categoriaRepository.findAll());
+        return "FramesAdmin/frmEditarProducto";
+    }
+
+    @PostMapping("/admin/productos/{id}/editar")
+    public String actualizarProducto(@PathVariable Long id,
+                                     @ModelAttribute Producto producto,
+                                     @RequestParam("imagenArchivo") MultipartFile imagenArchivo) throws IOException {
+        productoService.actualizarProducto(id, producto, imagenArchivo);
+        return"redirect:/admin/productos";
+    }
+
+
+
 
 
 }

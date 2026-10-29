@@ -111,4 +111,41 @@ public class ProductoService {
         return productoRepository.save(producto);
     }
 
+    public Producto actualizarProducto(Long idProducto,Producto datosActualizados, MultipartFile imagenArchivo) throws IOException {
+        if (datosActualizados.getNombre() == null ||
+                datosActualizados.getNombre().isBlank()) {
+            throw new IllegalArgumentException("El nombre del producto es obligatorio");
+        }
+
+        if (datosActualizados.getNombre().length() > 50) {
+            throw new IllegalArgumentException("El nombre no puede superar los 50 caracteres");
+        }
+
+        if (datosActualizados.getPrecio() == null ||
+                datosActualizados.getPrecio().compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("El precio debe ser mayor a 0");
+        }
+
+        if(datosActualizados.getCategoria()==null || datosActualizados.getCategoria().getIdCategoria()==null){
+            throw new IllegalArgumentException("La categoria es obligatoria");
+        }
+
+        if(!categoriaRepository.existsById(datosActualizados.getCategoria().getIdCategoria())){
+            throw new IllegalArgumentException("La categoria seleccionada no existe");
+        }
+
+        Producto producto=productoRepository.findById(idProducto).orElseThrow(()->new RuntimeException("Producto no encontrado"));
+        producto.setNombre(datosActualizados.getNombre());
+        producto.setDescripcion(datosActualizados.getDescripcion());
+        producto.setPrecio(datosActualizados.getPrecio());
+        producto.setCategoria(datosActualizados.getCategoria());
+
+        if(imagenArchivo!=null && !imagenArchivo.isEmpty()){
+            String nombreArchivo = guardarImagenLocal(imagenArchivo);
+            producto.setImagen("/uploads/productos/" + nombreArchivo);
+        }
+        return productoRepository.save(producto);
+    }
+
+
 }
