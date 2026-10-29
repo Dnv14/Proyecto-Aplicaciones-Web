@@ -1,53 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sport Shop - Gestionar Productos</title>
-    <link rel="stylesheet" th:href="@{/styles/styles.css}">
-</head>
+<head th:replace="~{framesAdmin/utileriasAdmin/head :: headAdmin('Sport Shop | Panel Admin')}"></head>
 
 <body>
-<header class="main-header">
-    <div class="header-top">
-        <a th:href="@{/admin}" class="logo">
-            <img th:src="@{/imgs/logo.jpg}" alt="Sport Shop Logo">
-        </a>
-
-        <div class="search">
-            <input type="text" placeholder="¿Qué producto estás buscando?">
-        </div>
-
-        <div class="links-usuario">
-            <div class="menu-dropdown">
-                <a href="#" class="btn-dropdown">Panel Administrativo </a>
-                <ul class="dropdown-content">
-                    <li><a th:href="@{/admin/productos}">Gestionar Productos</a></li>
-                    <li><a href="frmAjustarInventario.html">Ajustar Inventario</a></li>
-                    <li><a href="frmListadoOrdenes.html">Ver Listado de Órdenes</a></li>
-                    <li><a href="#">Cambiar Estado de una Orden</a></li>
-                    <li><a href="#">Ver Dashboard de Resumen</a></li>
-                    <li><a href="frmGestionarCategorias.html">Gestionar Categorías</a></li>
-                </ul>
-            </div>
-            <form th:action="@{/logout}" method="post">
-                <button type="submit">Cerrar sesión</button>
-            </form>
-        </div>
-    </div>
-
-    <nav class="nav-categorias">
-        <ul>
-            <li><a href="#">Fútbol</a></li>
-            <li><a href="#">Gym</a></li>
-            <li><a href="#">Basquetbol</a></li>
-            <li><a href="#">Boxeo</a></li>
-            <li><a href="#">Ropa deportiva</a></li>
-            <li><a href="#">Calzado</a></li>
-            <li><a href="#">Accesorios</a></li>
-        </ul>
-    </nav>
-</header>
+<header th:replace="~{FramesAdmin/utileriasAdmin/header :: headerAdmin}"></header>
 
 <main class="main-content">
     <h1 class="section-title">Gestión de Productos</h1>

@@ -1,20 +1,20 @@
 /*aqui nomas es importar los archivos que vayan creando para que en el html nomas le
 llamemos al styles*/
 
-@import "variablesGlobales.css";
-@import "header-footer.css";
-@import "frmPrincipalUsuario.css";
-@import "inicio-registro.css";
-@import "producto.css";
-@import "checkout.css";
-@import "carrito.css";
-@import "menu-desplegable.css";
-@import "crear-producto.css";
-@import "listado-ordenes.css";
-@import "boton-ordenar.css";
-@import "gestionar-producto.css";
-@import "inventario.css";
-@import "activar-desactivar.css";
+@import "compartidos/variablesGlobales.css";
+@import "compartidos/header-footer.css";
+@import "compartidos/frameprincipal.css";
+@import "compartidos/inicio-registro.css";
+@import "cliente/producto.css";
+@import "cliente/checkout.css";
+@import "cliente/carrito.css";
+@import "admin/menu-desplegable.css";
+@import "admin/crear-producto.css";
+@import "admin/listado-ordenes.css";
+@import "admin/boton-ordenar.css";
+@import "admin/gestionar-producto.css";
+@import "admin/inventario.css";
+@import "admin/activar-desactivar.css";
 
 
 * {
