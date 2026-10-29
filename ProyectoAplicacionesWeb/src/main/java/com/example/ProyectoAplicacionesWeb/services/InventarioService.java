@@ -21,8 +21,6 @@ public class InventarioService {
 
     @Autowired
     private InventarioRepository inventarioRepository;
-    @Autowired
-    private Mod10CheckValidator mod10CheckValidator;
 
     @Transactional
     public void ajustarInventario(Long idProducto, Integer cantidad, TipoMovimiento tipoMovimiento, String comentario) {
