@@ -15,8 +15,6 @@ llamemos al styles*/
 @import "gestionar-producto.css";
 @import "inventario.css";
 @import "activar-desactivar.css";
-@import "asignar-productos.css";
-@import "reasignar-producto.css";
 
 
 * {
