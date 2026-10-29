@@ -18,7 +18,7 @@ import java.time.LocalDate;
 public class Inventario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idInventario;
+    private Long idInventario;
 
     @NotNull
     @Min(1)

@@ -16,7 +16,7 @@ import java.util.List;
 public class Direccion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idDireccion;
+    private Long idDireccion;
 
     @Column(length = 50)
     private String calle;

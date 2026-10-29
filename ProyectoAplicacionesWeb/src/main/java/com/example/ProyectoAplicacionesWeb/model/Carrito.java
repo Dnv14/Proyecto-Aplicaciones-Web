@@ -17,7 +17,7 @@ import java.util.List;
 public class Carrito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCarrito;
+    private Long idCarrito;
 
     @Column
     private LocalDateTime fechaCreacion;

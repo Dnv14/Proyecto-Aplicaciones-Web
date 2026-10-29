@@ -32,7 +32,7 @@ public class ProductoService {
         return productoRepository.findAll();
     }
 
-    public Optional<Producto> obtenerProductoPorId(Integer id) {
+    public Optional<Producto> obtenerProductoPorId(Long id) {
         return productoRepository.findById(id);
     }
 
@@ -105,7 +105,7 @@ public class ProductoService {
         return productoRepository.findByCategoria_Nombre(categoria);
     }
 
-    public Producto cambiarEstadoProducto(Integer idProducto, boolean activo) {
+    public Producto cambiarEstadoProducto(Long idProducto, boolean activo) {
         Producto producto= productoRepository.findById(idProducto).orElseThrow(()->new RuntimeException("Producto no encontrado"));
         producto.setActivo(activo);
         return productoRepository.save(producto);

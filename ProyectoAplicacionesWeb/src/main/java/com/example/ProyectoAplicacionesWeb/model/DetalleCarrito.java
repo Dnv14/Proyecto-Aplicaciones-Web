@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class DetalleCarrito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idDetalleCarrito;
+    private Long idDetalleCarrito;
 
     @Column
     private Integer cantidad;

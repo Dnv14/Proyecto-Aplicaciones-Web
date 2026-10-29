@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class DetalleOrden {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idDetalleOrden;
+    private Long idDetalleOrden;
 
     @Column
     private Integer cantidad;

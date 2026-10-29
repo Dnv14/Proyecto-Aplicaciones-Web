@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface CategoriaRepository extends JpaRepository<Categoria, Integer> {
+public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
     List<Categoria> findAll();
-    Optional<Categoria> findById(Integer id);
+    Optional<Categoria> findById(Long id);
 }

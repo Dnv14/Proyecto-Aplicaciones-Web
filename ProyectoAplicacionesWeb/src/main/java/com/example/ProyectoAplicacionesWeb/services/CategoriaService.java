@@ -22,7 +22,7 @@ public class CategoriaService {
         return categoriaRepository.save(categoria);
     }
 
-    public Optional<Categoria> actualizarCategoriaCompleta(Integer id, Categoria categoria) {
+    public Optional<Categoria> actualizarCategoriaCompleta(Long id, Categoria categoria) {
         return categoriaRepository.findById(id).map(categoriaExistente->{
             //PUT actualiza el objeto completo
             categoriaExistente.setDescripcion(categoria.getDescripcion());
@@ -32,7 +32,7 @@ public class CategoriaService {
         });
     }
 
-    public Optional<Categoria> actualizarCategoriaParcial(Integer id, Categoria categoria) {
+    public Optional<Categoria> actualizarCategoriaParcial(Long id, Categoria categoria) {
         return categoriaRepository.findById(id).map(categoriaExistente->{
             //PATCH actualiza el objeto parcial
             if(categoria.getDescripcion() != null){
@@ -49,7 +49,7 @@ public class CategoriaService {
         });
     }
 
-    public void eliminarCategoria(Integer id) {
+    public void eliminarCategoria(Long id) {
         categoriaRepository.deleteById(id);
     }
 }
