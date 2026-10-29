@@ -15,6 +15,9 @@ llamemos al styles*/
 @import "admin/gestionar-producto.css";
 @import "admin/inventario.css";
 @import "admin/activar-desactivar.css";
+@import "admin/gestionar-categorias.css";
+@import "admin/agregar-categoria.css";
+@import "admin/editar-categoria.css";
 
 
 * {

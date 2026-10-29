@@ -1,178 +1,82 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="~{framesAdmin/utileriasAdmin/head :: headAdmin('Sport Shop | Panel Admin')}"></head>
+    <head th:replace="~{FramesAdmin/utileriasAdmin/head :: headAdmin('Sport Shop | Gestionar Categorías')}"></head>
 
     <body>
-        <header th:replace="~{framesAdmin/utileriasAdmin/header :: headerAdmin}"></header>
+        <header th:replace="~{FramesAdmin/utileriasAdmin/header :: headerAdmin}"></header>
 
-        <main class="contenido-principal">
+        <main class="main-content categorias-container">
+            <h1 class="section-title">Gestionar Categorías</h1>
 
-            <section class="presentacion">
-                <div>
-                    <span class="etiqueta">CATÁLOGO</span>
-                    <h1>Gestionar categorías</h1>
-                    <p>
-                        Organiza y administra las categorías de Sport Shop.
-                    </p>
+            <div class="inventory-card">
+                <div class="products-toolbar cat-toolbar">
+                    <form th:action="@{/admin/categorias}" method="get" class="search-form" style="margin: 0;">
+                        <input type="text"
+                               name="buscar"
+                               th:value="${param.buscar}"
+                               class="input-rounded product-search"
+                               placeholder="Buscar categoría...">
+                    </form>
+                    <a th:href="@{/admin/crearCategoria}" class="btn-confirm-adjustments">Nueva Categoría +</a>
                 </div>
 
-                <a th:href="@{/admin/categorias/nueva}"
-                   class="boton boton-principal">
-                    <span aria-hidden="true">+</span>
-                    Nueva categoría
-                </a>
-            </section>
-
-            <div th:if="${mensaje}" class="alerta alerta-exito"
-                 th:text="${mensaje}" role="status">
-            </div>
-
-            <div th:if="${error}" class="alerta alerta-error"
-                 th:text="${error}" role="alert">
-            </div>
-
-            <section class="panel-categorias">
-
-                <div class="panel-encabezado">
-                    <div>
-                        <h2>Listado de categorías</h2>
-                        <p>Consulta y administra tu catálogo.</p>
-                    </div>
-
-                    <label class="buscador">
-                        <span aria-hidden="true">⌕</span>
-                        <input type="search"
-                               id="buscarCategoria"
-                               placeholder="Buscar categoría..."
-                               aria-label="Buscar categoría">
-                    </label>
-                </div>
-
-                <div class="tabla-contenedor">
-                    <table class="tabla-categorias">
+                <div class="table-scroll-container">
+                    <table class="inventory-table cat-table">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Nombre</th>
-                                <th>Descripción</th>
-                                <th>Productos</th>
-                                <th>Acciones</th>
+                                <th class="col-cat-id">ID Categoría</th>
+                                <th class="col-cat-nombre">Categoría</th>
+                                <th class="col-cat-cant">Productos</th>
+                                <th class="col-cat-acciones">Acciones</th>
                             </tr>
                         </thead>
-
                         <tbody id="cuerpoCategorias">
 
-                        <tr th:each="categoria : ${categorias}"
-                            class="fila-categoria">
+                        <tr th:each="categoria : ${categorias}" class="fila-categoria">
+                            <td class="col-cat-id" th:text="${categoria.idCategoria}"></td>
+                            <td class="col-cat-nombre" th:text="${categoria.nombre}"></td>
+                            <td class="col-cat-cant"
+                                th:text="${categoria.productos != null ? #lists.size(categoria.productos) : 0}"></td>
 
-                            <td class="id-categoria"
-                                th:text="${categoria.idCategoria}">
-                                1
-                            </td>
+                            <td class="col-cat-acciones action-col cat-action-col">
+                                <a th:href="@{/admin/editarCategoria/{id}(id=${categoria.idCategoria})}"
+                                   class="btn-edit-product">Editar</a>
 
-                            <td class="nombre-categoria"
-                                th:text="${categoria.nombre}">
-                                Cuidado personal
-                            </td>
-
-                            <td th:text="${categoria.descripcion}">
-                                Productos para el cuidado diario.
-                            </td>
-
-                            <td>
-                        <span class="contador-productos"
-                              th:text="${categoria.productos == null
-                                  ? 0 : #lists.size(categoria.productos)}">
-                            0
-                        </span>
-                            </td>
-
-                            <td>
-                                <div class="acciones">
-
-                                    <a class="boton-accion boton-editar"
-                                       th:href="@{/admin/categorias/{id}/editar(id=${categoria.idCategoria})}"
-                                       title="Editar categoría"
-                                       aria-label="Editar categoría">
-                                        ✎
-                                    </a>
-
-                                    <form th:action="@{/admin/categorias/{id}/eliminar(id=${categoria.idCategoria})}"
-                                          method="post"
-                                          class="form-eliminar"
-                                          onsubmit="return confirm('¿Deseas eliminar esta categoría?');">
-
-                                        <button type="submit"
-                                                class="boton-accion boton-eliminar"
-                                                title="Eliminar categoría"
-                                                aria-label="Eliminar categoría">
-                                            ×
-                                        </button>
-                                    </form>
-
-                                </div>
+                                <form th:action="@{/admin/eliminarCategoria/{id}(id=${categoria.idCategoria})}"
+                                      method="post"
+                                      class="cat-form-eliminar"
+                                      onsubmit="return confirm('¿Deseas eliminar esta categoría?');">
+                                    <button type="submit" class="btn-deactivate-product">Eliminar</button>
+                                </form>
                             </td>
                         </tr>
 
-                        <tr th:if="${#lists.isEmpty(categorias)}"
-                            id="sinCategorias">
-                            <td colspan="5" class="tabla-vacia">
-                                <span class="icono-vacio">♡</span>
-                                <strong>Aún no hay categorías</strong>
-                                <p>Agrega una categoría para comenzar.</p>
+                        <tr th:if="${#lists.isEmpty(categorias)}">
+                            <td colspan="4" class="cat-tabla-vacia"
+                                style="text-align: center; padding: 25px; color: #666;">
+                                No hay categorías registradas o no se encontraron resultados.
                             </td>
                         </tr>
 
                         </tbody>
                     </table>
                 </div>
-
-                <div id="sinResultados" class="sin-resultados" hidden>
-                    No se encontraron categorías con ese nombre.
-                </div>
-
-                <div class="pie-panel">
-            <span>
-                Categorías registradas:
-                <strong th:text="${categorias != null ? #lists.size(categorias) : 0}">0</strong>
-            </span>
-                </div>
-
-            </section>
+            </div>
         </main>
 
-        <script>
-            const buscador = document.getElementById("buscarCategoria");
-            const filas = document.querySelectorAll(".fila-categoria");
-            const sinResultados = document.getElementById("sinResultados");
-            const sinCategorias = document.getElementById("sinCategorias");
-
-            if (buscador) {
-                buscador.addEventListener("input", function () {
-                    const texto = this.value.trim().toLocaleLowerCase();
-                    let visibles = 0;
-
-                    filas.forEach(function (fila) {
-                        const contenido = fila.textContent.toLocaleLowerCase();
-                        const coincide = contenido.includes(texto);
-
-                        fila.hidden = !coincide;
-
-                        if (coincide) {
-                            visibles++;
-                        }
-                    });
-
-                    if (sinResultados) {
-                        sinResultados.hidden = visibles !== 0 || filas.length === 0;
-                    }
-
-                    if (sinCategorias) {
-                        sinCategorias.hidden = texto.length > 0;
-                    }
-                });
-            }
-        </script>
-
+        <footer class="main-footer">
+            <div class="footer-benefit">
+                <span>Envíos gratis</span>
+                <small>En compras mayores $500</small>
+            </div>
+            <div class="footer-benefit">
+                <span>Compras seguras</span>
+                <small>En compras mayores $500</small>
+            </div>
+            <div class="footer-benefit">
+                <span>Compras seguras</span>
+                <small>En compras mayores $500</small>
+            </div>
+        </footer>
     </body>
 </html>

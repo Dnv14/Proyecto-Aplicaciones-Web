@@ -1,0 +1,36 @@
+.categorias-container .col-cat-id {
+    width: 15%;
+}
+
+.categorias-container .col-cat-nombre {
+    width: 40%;
+}
+
+.categorias-container .col-cat-cant {
+    width: 20%;
+}
+
+.categorias-container .col-cat-acciones {
+    width: 25%;
+    text-align: center;
+}
+
+.categorias-container .cat-action-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.categorias-container .cat-form-eliminar {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.categorias-container .cat-tabla-vacia {
+    text-align: center;
+    padding: 25px;
+    font-weight: 500;
+    color: #666;
+}

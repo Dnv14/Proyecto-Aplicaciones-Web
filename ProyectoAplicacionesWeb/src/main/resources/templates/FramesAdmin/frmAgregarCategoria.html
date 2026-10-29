@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{FramesAdmin/utileriasAdmin/head :: headAdmin('Sport Shop | Crear Categoría')}"></head>
+
+    <body>
+        <header th:replace="~{FramesAdmin/utileriasAdmin/header :: headerAdmin}"></header>
+
+        <main class="main-content agregar-categoria">
+            <h1 class="section-title">Gestionar Categorías</h1>
+
+            <div class="inventory-card outer-card">
+
+                <h2 class="form-main-title">Crear Nueva Categoría</h2>
+
+                <div class="form-inner-box">
+
+                    <form th:action="@{/admin/crearCategoria}" th:object="${categoria}" method="post">
+
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text"
+                                   id="nombre"
+                                   th:field="*{nombre}"
+                                   placeholder="Nombre de la categoría"
+                                   required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="descripcion">Descripción</label>
+                            <textarea id="descripcion"
+                                      th:field="*{descripcion}"
+                                      placeholder="Descripción de la categoría"
+                                      rows="3"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            Crear
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <div class="footer-benefit">
+                <span>Envíos gratis</span>
+                <small>En compras mayores $500</small>
+            </div>
+            <div class="footer-benefit">
+                <span>Compras seguras</span>
+                <small>En compras mayores $500</small>
+            </div>
+            <div class="footer-benefit">
+                <span>Compras seguras</span>
+                <small>En compras mayores $500</small>
+            </div>
+        </footer>
+    </body>
+</html>
