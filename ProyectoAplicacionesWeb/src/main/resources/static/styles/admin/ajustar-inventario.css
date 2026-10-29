@@ -1,0 +1,37 @@
+.inventory-card > form,
+.inventory-card > .form-group {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.inventory-card .form-group {
+    margin-bottom: 20px;
+}
+
+.inventory-card .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.inventory-card .form-group .input-rounded {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.inventory-card .form-group .row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.inventory-card .form-group .row .input-rounded {
+    flex: 1;
+    min-width: 0;
+}
+
+.inventory-card .form-group .row .btn-confirm-adjustments {
+    flex-shrink: 0;
+}

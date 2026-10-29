@@ -27,8 +27,15 @@ public class ProductoController {
     }
 
     @GetMapping("/admin/productos")
-    public String mostrarProductos(Model model) {
-        model.addAttribute("productos",productoService.obtenerProductos());
+    public String mostrarProductos(@RequestParam(name = "buscar", required = false) String buscar,Model model) {
+        if (buscar == null || buscar.isBlank()) {
+            model.addAttribute("productos",productoService.obtenerProductos());
+        }else if(buscar.matches("\\d+")){
+            model.addAttribute("productos",productoService.buscarProductoPorId(Long.valueOf(buscar)));
+        }else{
+            model.addAttribute("productos",productoService.buscarProductosPorNombre(buscar));
+        }
+        model.addAttribute("busquedaActual",buscar);
         return "FramesAdmin/frmInventario";
     }
 
@@ -62,9 +69,5 @@ public class ProductoController {
         productoService.actualizarProducto(id, producto, imagenArchivo);
         return"redirect:/admin/productos";
     }
-
-
-
-
 
 }

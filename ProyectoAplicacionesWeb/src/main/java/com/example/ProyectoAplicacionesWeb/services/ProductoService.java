@@ -147,5 +147,12 @@ public class ProductoService {
         return productoRepository.save(producto);
     }
 
+    public List<Producto> buscarProductosPorNombre(String nombre) {
+        return productoRepository.findByNombreContainingIgnoreCase(nombre);
+    }
+
+    public List<Producto> buscarProductoPorId(Long idProducto) {
+        return productoRepository.findById(idProducto).map(List::of).orElseGet(List::of);
+    }
 
 }

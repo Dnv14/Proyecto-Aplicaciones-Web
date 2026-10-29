@@ -10,7 +10,9 @@
 
     <div class="inventory-card">
         <div class="products-toolbar">
-            <input type="text" class="input-rounded product-search" placeholder="Ingresa el nombre o el codigo del producto">
+            <form th:action="@{/admin/productos}" method="get">
+                <input type="text" name="buscar" th:value="${busquedaActual}" class="input-rounded product-search" placeholder="Ingresa el nombre o el codigo del producto">
+            </form>
             <a th:href="@{/admin/crearProducto}" class="btn-confirm-adjustments">Crear Producto</a>
         </div>
 

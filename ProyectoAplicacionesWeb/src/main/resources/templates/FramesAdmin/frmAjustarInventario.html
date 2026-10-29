@@ -1,117 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
 <head th:replace="~{framesAdmin/utileriasAdmin/head :: headAdmin('Sport Shop | Panel Admin')}"></head>
-    <body>
+<body>
+<header th:replace="~{FramesAdmin/utileriasAdmin/header :: headerAdmin}"></header>
+<main class="contenido-principal">
 
-    <header th:replace="~{FramesAdmin/utileriasAdmin/header :: headerAdmin}"></header>
-
-    <main class="contenido-principal">
-        <h1 class="section-title">Ajustar Inventario</h1>
-
-        <div class="inventory-card">
-            <div class="form-group row">
-                <input type="text" placeholder="Ingrese código de producto" class="input-rounded">
+    <h1 class="section-title">Ajustar Inventario</h1>
+    <p th:if="${mensaje != null}" th:text="${mensaje}"style="color: #16a34a; font-weight: 600;"></p>
+    <p th:if="${error != null}"th:text="${error}"style="color: #dc2626; font-weight: 600;"></p>
+    <div class="inventory-card">
+        <form th:action="@{/admin/ajustarInventario}" method="get" class="form-group">
+            <label for="idProducto">Código del producto</label>
+            <div class="row">
+                <input type="number" id="idProducto" name="idProducto" min="1" required class="input-rounded" placeholder="Ingrese el ID del producto">
+                <button type="submit" class="btn-confirm-adjustments" > Buscar </button>
             </div>
+        </form>
+        <div th:if="${producto!=null}" class="form-group">
+            <h2>Información  del producto</h2>
+            <p>
+                <strong>Nombre: </strong>
+                <span th:text="${producto.nombre}"></span>
+            </p>
+            <p>
+                <strong>Stock actual:</strong>
+                <span th:text="${producto.stock}"></span>
+            </p>
+        </div>
+        <form th:if="${producto != null}"  th:action="@{/admin/ajustarInventario}" method="post">
+            <input type="hidden"  name="idProducto" th:value="${producto.idProducto}">
+        <div class="form-group">
+            <label for="tipoMovimiento">Tipo de movimiento</label>
+            <select id="tipoMovimiento" name="tipoMovimiento" class="input-rounded" required>
+                <option value="">Seleccione un movimiento</option>
+                <option value="ENTRADA">Entrada</option>
+                <option value="SALIDA">Salida</option>
+                <option value="MERMA">Merma</option>
+                <option value="CORRECCION">Corrección</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="cantidad">Cantidad</label>
+            <input type="number" id="cantidad" name="cantidad" min="0" required class="input-rounded" placeholder="Ingrese la cantidad">
+        </div>
+        <div class="form-group">
+            <label for="comentario">Motivo del ajuste</label>
+            <textarea id="comentario"  name="comentario" class="input-rounded" rows="3" required placeholder="Escriba el motivo del ajuste"></textarea>
+        </div>
+            <button type="submit" class="btn-confirm-adjustments">Confirmar ajuste</button>
+        </form>
+    </div>
 
-            <div class="table-scroll-container">
-                <table class="adjust-table">
-                    <thead>
-                    <tr>
-                        <th>
-                            <div class="th-content">
-                                <span>Código de Producto</span>
-                                <button type="button" class="order-btn" title="Ordenar">
-                                    <span class="indicator">▲</span>
-                                    <span class="indicator">▼</span>
-                                </button>
-                            </div>
-                        </th>
-                        <th>
-                            <div class="th-content">
-                                <span>Inventario</span>
-                                <button type="button" class="order-btn" title="Ordenar">
-                                    <span class="indicator">▲</span>
-                                    <span class="indicator">▼</span>
-                                </button>
-                            </div>
-                        </th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>858585</td>
-                        <td>30</td>
-                        <td class="action-col">
-                            <label>Ajustar Inventario</label>
-                            <input type="number" class="input-capsule">
-                        </td>
-                        <td class="action-col">
-                            <label>Motivo</label>
-                            <input type="text" class="input-capsule input-reason">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>86786</td>
-                        <td>20</td>
-                        <td class="action-col">
-                            <label>Ajustar Inventario</label>
-                            <input type="number" class="input-capsule">
-                        </td>
-                        <td class="action-col">
-                            <label>Motivo</label>
-                            <input type="text" class="input-capsule input-reason">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>86787</td>
-                        <td>15</td>
-                        <td class="action-col">
-                            <label>Ajustar Inventario</label>
-                            <input type="number" class="input-capsule">
-                        </td>
-                        <td class="action-col">
-                            <label>Motivo</label>
-                            <input type="text" class="input-capsule input-reason">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>86788</td>
-                        <td>50</td>
-                        <td class="action-col">
-                            <label>Ajustar Inventario</label>
-                            <input type="number" class="input-capsule">
-                        </td>
-                        <td class="action-col">
-                            <label>Motivo</label>
-                            <input type="text" class="input-capsule input-reason">
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
 
-        <div class="external-btn-wrapper">
-            <button type="submit" class="btn-confirm-adjustments">Confirmar Ajustes</button>
-        </div>
-    </main>
+</main>
 
-    <footer class="main-footer">
-        <div class="footer-benefit">
-            <span>Envíos gratis</span>
-            <small>En compras mayores $500</small>
-        </div>
-        <div class="footer-benefit">
-            <span>Compras seguras</span>
-            <small>En compras mayores $500</small>
-        </div>
-        <div class="footer-benefit">
-            <span>Compras seguras</span>
-            <small>En compras mayores $500</small>
-        </div>
-    </footer>
+<footer class="main-footer">
+    <div class="footer-benefit">
+        <span>Envíos gratis</span>
+        <small>En compras mayores $500</small>
+    </div>
+    <div class="footer-benefit">
+        <span>Compras seguras</span>
+        <small>En compras mayores $500</small>
+    </div>
+    <div class="footer-benefit">
+        <span>Compras seguras</span>
+        <small>En compras mayores $500</small>
+    </div>
+</footer>
 
-    </body>
+</body>
 </html>
