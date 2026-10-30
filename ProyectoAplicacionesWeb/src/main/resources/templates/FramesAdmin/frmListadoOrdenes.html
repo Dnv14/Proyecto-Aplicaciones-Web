@@ -1,62 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sport Shop - Listado Ordenes</title>
-        <link rel="stylesheet" href="../../static/styles/styles.css">
-    </head>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{framesAdmin/utileriasAdmin/head :: headAdmin('Sport Shop | Panel Admin')}"></head>
 
     <body>
-    <header class="main-header">
-        <div class="header-top">
-            <a href="frmPrincipalAdministrador.html" class="logo">
-                <img src="../../static/imgs/logo.jpg" alt="Sport Shop Logo">
-            </a>
-
-            <div class="search">
-                <input type="text" placeholder="¿Qué producto estás buscando?">
-            </div>
-
-            <div class="links-usuario">
-                <div class="menu-dropdown">
-                    <a href="#" class="btn-dropdown">Panel Administrativo </a>
-                    <ul class="dropdown-content">
-                        <li><a href="frmCrearProducto.html">Crear Producto</a></li>
-                        <li><a href="frmEditarProducto.html">Editar Producto</a></li>
-                        <li><a href="frmActivarDesactivar.html">Activar / Desactivar Producto</a></li>
-                        <li><a href="frmInventario.html">Ver Inventario</a></li>
-                        <li><a href="frmAjustarInventario.html">Ajustar Inventario</a></li>
-                        <li><a href="frmListadoOrdenes.html">Ver Listado de Órdenes</a></li>
-                        <li><a href="#">Cambiar Estado de una Orden</a></li>
-                        <li><a href="#">Ver Dashboard de Resumen</a></li>
-                        <li><a href="frmGestionarCategorias.html">Gestionar Categorías</a></li>
-                    </ul>
-                </div>
-                <a href="#">Logout</a>
-            </div>
-        </div>
-
-        <nav class="nav-categorias">
-            <ul>
-                <li><a href="#">Fútbol</a></li>
-                <li><a href="#">Gym</a></li>
-                <li><a href="#">Basquetbol</a></li>
-                <li><a href="#">Boxeo</a></li>
-                <li><a href="#">Ropa deportiva</a></li>
-                <li><a href="#">Calzado</a></li>
-                <li><a href="#">Accesorios</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header th:replace="~{framesAdmin/utileriasAdmin/header :: headerAdmin}"></header>
 
     <main class="main-content">
-        <h1 class="section-title">Listado de Órdenes</h1>
+        <h1 class="section-title">Listado Ordenes</h1>
 
         <div class="form-grid orders-grid">
             <!-- Columna Izquierda: Búsqueda y Tabla de Órdenes -->
-            <div class="form-section">
-                <div class="form-group row">
-                    <input type="text" placeholder="Ingrese código de producto" class="input-rounded">
+            <div class="form-section panel-box">
+                <!-- Buscador con icono -->
+                <div class="form-group row search-group">
+                    <span class="search-icon">🔍</span>
+                    <input type="text"  id= "buscadorFolio" placeholder="Ingrese folio de la orden" class="input-rounded">
                 </div>
 
                 <div class="table-responsive">
@@ -65,75 +23,142 @@
                         <tr>
                             <th>
                                 <div class="th-content">
-                                    <span>Id</span>
-                                    <button type="button" class="order-btn" title="Ordenar">
-                                        <span class="indicator">▲</span>
-                                        <span class="indicator">▼</span>
-                                    </button>
+                                    <span>Folio Orden</span>
+                                    <button type="button" class="order-btn" title="Ordenar">⬍</button>
                                 </div>
                             </th>
                             <th>
                                 <div class="th-content">
                                     <span>Estado</span>
-                                    <button type="button" class="order-btn" title="Ordenar">
-                                        <span class="indicator">▲</span>
-                                        <span class="indicator">▼</span>
-                                    </button>
+                                    <button type="button" class="order-btn" title="Ordenar">⬍</button>
                                 </div>
                             </th>
                             <th>
                                 <div class="th-content">
                                     <span>Fecha</span>
-                                    <button type="button" class="order-btn" title="Ordenar">
-                                        <span class="indicator">▲</span>
-                                        <span class="indicator">▼</span>
-                                    </button>
+                                    <button type="button" class="order-btn" title="Ordenar">⬍</button>
                                 </div>
                             </th>
                             <th>
                                 <div class="th-content">
                                     <span>Cliente</span>
-                                    <button type="button" class="order-btn" title="Ordenar">
-                                        <span class="indicator">▲</span>
-                                        <span class="indicator">▼</span>
-                                    </button>
+                                    <button type="button" class="order-btn" title="Ordenar">⬍</button>
                                 </div>
                             </th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td><span class="badge badge-pending">pendiente</span></td>
-                            <td>26/09/26</td>
-                            <td>Pepe</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><span class="badge badge-processing">procesando</span></td>
-                            <td>27/09/26</td>
-                            <td>Jorge</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td><span class="badge badge-shipped">enviado</span></td>
-                            <td>28/09/26</td>
-                            <td>Juan</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td><span class="badge badge-delivered">entregado</span></td>
-                            <td>29/09/26</td>
-                            <td>Maria</td>
+                        <!-- Recorremos la lista de órdenes que viene del backend -->
+                        <tr th:each="ord : ${ordenes}" th:onclick="|window.location.href='@{/admin/ordenes(id=${ord.idOrden})}'|" style="cursor: pointer;">
+                            <td th:text="${ord.folioOrden}">ABC123</td>
+                            <td>
+                                <!-- Insignia dinámica según el estado del Enum (PENDIENTE, PROCESANDO, ENVIADO, ENTREGADO) -->
+                                <span class="badge"
+                                      th:classappend="${ord.estado?.name() == 'PENDIENTE'} ? 'badge-pending' : (${ord.estado?.name() == 'PROCESANDO'} ? 'badge-processing' : (${ord.estado?.name() == 'ENVIADO'} ? 'badge-shipped' : 'badge-delivered'))"
+                                      th:text="${ord.estado}">pendiente</span>
+                            </td>
+                            <td th:text="${#temporals.format(ord.fecha, 'dd/MM/yy')}">26/09/26</td>
+                            <td th:text="${ord.cliente != null ? ord.cliente.nombre : 'Sin cliente'}">Pepe</td>
+                            <td>
+                                <a th:href="@{/admin/ordenes(id=${ord.idOrden})}" class="btn-guardar" style="text-decoration: none; display: inline-block; text-align: center;">VER</a>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <!-- Columna Derecha: Información de la orden seleccionada -->
-            <div class="form-section order-detail-card">
-                <h2 class="detail-title">Detalle de la Orden</h2>
+            <!-- Columna Derecha: Información de la orden seleccionada (Detalle del pedido) -->
+            <div class="form-section panel-box order-detail-card" th:if="${ordenSeleccionada != null}">
+                <div class="detail-header">
+                    <span class="icon-box">⚙</span>
+                    <h2 class="detail-title">Detalle del pedido</h2>
+                </div>
+
+                <div class="detail-content">
+                    <!-- Encabezado de la Orden con Formulario para cambiar estado -->
+                    <form th:action="@{/admin/ordenes/actualizar-estado}" method="post" class="order-info-header" style="align-items: center;">
+                        <!-- Campo oculto para enviar el ID de la orden -->
+                        <input type="hidden" name="idOrden" th:value="${ordenSeleccionada.idOrden}" />
+
+                        <div>
+                            <h3 class="order-id" th:text="'Orden #' + (${ordenSeleccionada.folioOrden} ?: ${ordenSeleccionada.idOrden})">Orden #SS1005</h3>
+                            <p class="order-date" th:text="${ordenSeleccionada.fecha}">12 de abril de 2024</p>
+                        </div>
+
+                        <!-- Contenedor del ComboBox y el Botón Guardar -->
+                        <div style="display: flex; gap: 8px; align-items: center;">
+                            <select name="nuevoEstado" class="input-rounded" style="padding: 6px 10px; font-size: 12px; height: auto;">
+                                <!-- Itera dinámicamente sobre todos los valores del Enum EstadoOrden -->
+                                <option th:each="est : ${T(com.example.ProyectoAplicacionesWeb.model.enums.EstadoOrden).values()}"
+                                        th:value="${est}"
+                                        th:text="${est}"
+                                        th:selected="${est == ordenSeleccionada.estado}">
+                                </option>
+                            </select>
+                            <button type="submit" class="btn-guardar">GUARDAR</button>
+                        </div>
+                    </form>
+
+                    <!-- Dirección de entrega -->
+                    <div class="detail-block" th:if="${ordenSeleccionada.direccion != null}">
+                        <div class="block-title">
+                            <span class="icon">📍</span>
+                            <strong>Dirección de entrega</strong>
+                        </div>
+                        <p class="block-text" th:text="${ordenSeleccionada.cliente != null ? ordenSeleccionada.cliente.nombre : ''}">Juan Pérez González</p>
+                        <p class="block-subtext" th:text="${ordenSeleccionada.direccion.calle + ' ' + ordenSeleccionada.direccion.numero + ', ' + ordenSeleccionada.direccion.colonia + ', ' + ordenSeleccionada.direccion.ciudad}">Av. Revolución 1234...</p>
+                    </div>
+
+                    <!-- Método de pago (Si lo tienes en tu modelo, adáptalo aquí; de lo contrario puedes omitirlo o mostrar datos fijos/relacionados) -->
+                    <div class="detail-block">
+                        <div class="block-title">
+                            <span class="icon">💳</span>
+                            <strong>Método de pago</strong>
+                        </div>
+                        <p class="block-text">Tarjeta de crédito **** 4582</p>
+                        <p class="block-subtext">Visa</p>
+                    </div>
+
+                    <!-- Productos (Detalles de la orden) -->
+                    <div class="detail-block">
+                        <div class="block-title">
+                            <strong th:text="'Productos (' + ${ordenSeleccionada.detalles.size()} + ')'">Productos (4)</strong>
+                        </div>
+
+                        <!-- Iterar sobre la lista de DetalleOrden -->
+                        <div class="product-item" th:each="det : ${ordenSeleccionada.detalles}">
+                            <div class="product-info">
+                                <span class="product-icon">📦</span>
+                                <span class="product-name" th:text="${det.producto != null ? det.producto.nombre : 'Producto'}">Balón Fútbol</span>
+                            </div>
+                            <div class="product-price">
+                                <strong th:text="'$' + ${det.subtotal}">$499.00</strong>
+                                <span class="product-qty" th:text="'x' + ${det.cantidad}">x1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resumen de Costos -->
+                    <div class="detail-summary">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span th:text="'$' + ${ordenSeleccionada.total}">$1999.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Envío</span>
+                            <span class="text-green">Gratis</span>
+                        </div>
+                        <div class="summary-row total-row">
+                            <strong>Total</strong>
+                            <strong class="text-blue" th:text="'$' + ${ordenSeleccionada.total}">$1,999.00</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Placeholder si no hay ninguna orden seleccionada -->
+            <div class="form-section panel-box order-detail-card" th:unless="${ordenSeleccionada != null}">
                 <div class="detail-placeholder">
                     <p>Seleccione una orden de la lista para ver su información detallada.</p>
                 </div>
@@ -155,6 +180,26 @@
             <small>En compras mayores $500</small>
         </div>
     </footer>
+
+    <!-- Para actualizar las ordenes en el buscador en tiempo real  -->
+    <script>
+        document.getElementById('buscadorFolio').addEventListener('keyup', function() {
+            let textoBusqueda = this.value.toLowerCase();
+            let filas = document.querySelectorAll('.orders-table tbody tr');
+
+            filas.forEach(fila => {
+                // Suponiendo que el folio de la orden está en la primera columna (td)
+                let folioOrden = fila.querySelector('td').textContent.toLowerCase();
+
+                // Si el texto del folio incluye lo que se está escribiendo, se muestra; si no, se oculta
+                if (folioOrden.includes(textoBusqueda)) {
+                    fila.style.display = '';
+                } else {
+                    fila.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
     </body>
 

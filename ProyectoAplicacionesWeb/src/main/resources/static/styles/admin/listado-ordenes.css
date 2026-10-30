@@ -1,3 +1,6 @@
+/* ==========================================================================
+   frmListadoOrdenes.html form al que pertenece el css
+   ========================================================================== */
 
 .orders-grid {
     display: grid;
@@ -72,29 +75,204 @@
     gap: 15px;
 }
 
-.detail-title {
-    font-size: 18px;
-    color: var(--text-main);
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 10px;
+/* ==========================================================================
+   Nuevos Estilos Complementarios (Storyboard Themylife)
+   ========================================================================== */
+
+/* Contenedor tipo tarjeta con bordes redondeados */
+.panel-box {
+    background-color: var(--bg-card, #ffffff);
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.detail-placeholder {
-    color: var(--text-muted);
+/* Buscador con icono dentro */
+.search-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.search-group .search-icon {
+    position: absolute;
+    left: 14px;
     font-size: 14px;
-    text-align: center;
-    margin: auto 0;
+    color: var(--text-muted, #9ca3af);
+    pointer-events: none;
 }
 
-@media (max-width: 768px) {
-    .orders-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-    }
-
-    .orders-table th,
-    .orders-table td {
-        padding: 8px 5px;
-        font-size: 12px;
-    }
+.search-group .input-rounded {
+    width: 100%;
+    padding: 10px 14px 10px 38px;
+    border: 1px solid var(--border-color, #d1d5db);
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
 }
+
+.search-group .input-rounded:focus {
+    border-color: var(--primary-color, #2563eb);
+}
+
+/* Botón GUARDAR en la tabla */
+.btn-guardar {
+    background-color: #1f2937;
+    color: #ffffff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.2s;
+}
+
+.btn-guardar:hover {
+    background-color: #374151;
+}
+
+/* Cabecera del Detalle del Pedido */
+.detail-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+}
+
+.detail-header .icon-box {
+    font-size: 16px;
+}
+
+.detail-header .detail-title {
+    margin: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* Información general de la orden seleccionada */
+.order-info-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.order-id {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main, #111827);
+    margin: 0 0 4px 0;
+}
+
+.order-date {
+    font-size: 12px;
+    color: var(--text-muted, #6b7280);
+    margin: 0;
+}
+
+/* Insignia de estado personalizada para el detalle */
+.badge-enviado {
+    background-color: #e0e7ff;
+    color: #3730a3;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Bloques internos del detalle (Dirección, Pago, Productos) */
+.detail-block {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-color, #f3f4f6);
+}
+
+.detail-block:last-of-type {
+    border-bottom: none;
+    margin-bottom: 10px;
+}
+
+.block-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-main, #374151);
+    margin-bottom: 6px;
+}
+
+.block-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main, #1f2937);
+    margin: 0 0 2px 0;
+}
+
+.block-subtext {
+    font-size: 12px;
+    color: var(--text-muted, #6b7280);
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Estilos de productos en el detalle */
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.product-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.product-icon {
+    font-size: 16px;
+}
+
+.product-name {
+    color: var(--text-main, #374151);
+}
+
+.product-price {
+    text-align: right;
+}
+
+.product-qty {
+    display: block;
+    font-size: 11px;
+    color: var(--text-muted, #9ca3af);
+}
+
+/* Resumen final de costos */
+.detail-summary {
+    background-color: var(--bg-main, #f9fafb);
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-muted, #4b5563);
+}
+
+.total-row {
+    font-size: 14px;
+    border
