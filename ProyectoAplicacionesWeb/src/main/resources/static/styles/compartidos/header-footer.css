@@ -76,6 +76,26 @@ entonces para que no se repita a cada rato en el css
     color: var(--text-muted);
 }
 
+.btn-logout-nav {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.2s ease;
+}
+
+.btn-logout-nav:hover {
+    opacity: 0.7;
+}
+
+
 /* #endregion */
 
 /* #region pie de pagina */
@@ -105,12 +125,12 @@ entonces para que no se repita a cada rato en el css
     font-size: 0.8rem;
 }
 
-.header-detalle{
+.header-detalle {
     position: relative;
     justify-content: flex-start;
 }
 
-.header-detalle .back-button{
+.header-detalle .back-button {
     position: static;
     transform: none;
     margin-right: 10px;
@@ -118,7 +138,7 @@ entonces para que no se repita a cada rato en el css
     align-items: center;
 }
 
-.header-detalle .logo{
+.header-detalle .logo {
     margin-right: auto;
 }
 

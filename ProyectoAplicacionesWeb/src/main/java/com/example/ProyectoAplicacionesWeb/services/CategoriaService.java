@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @Service
 public class CategoriaService {
-    //ME FALTAN AGREGAR LAS VALIDACIONES DE NEGOCIO
     @Autowired
     private CategoriaRepository categoriaRepository;
 
@@ -34,6 +33,11 @@ public class CategoriaService {
         if (categoria.getNombre() == null || categoria.getNombre().trim().isEmpty()) {
             throw new IllegalArgumentException("El nombre de la categoría no puede estar vacío.");
         }
+
+        if (categoria.getDescripcion().trim().isEmpty()) {
+            throw new IllegalArgumentException("La descripción de la categoría no puede quedar vacía.");
+        }
+
         return categoriaRepository.save(categoria);
     }
 
@@ -48,14 +52,20 @@ public class CategoriaService {
     }
 
     public Optional<Categoria> actualizarCategoriaParcial(Long id, Categoria categoria) {
-        return categoriaRepository.findById(id).map(categoriaExistente -> {
-            //PATCH actualiza el objeto parcial
-            if (categoria.getDescripcion() != null) {
-                categoriaExistente.setDescripcion(categoria.getDescripcion());
 
-            }
+        return categoriaRepository.findById(id).map(categoriaExistente -> {
             if (categoria.getNombre() != null) {
+                if (categoria.getNombre().trim().isEmpty()) {
+                    throw new IllegalArgumentException("El nombre de la categoría no puede quedar vacío.");
+                }
                 categoriaExistente.setNombre(categoria.getNombre());
+            }
+
+            if (categoria.getDescripcion() != null) {
+                if (categoria.getDescripcion().trim().isEmpty()) {
+                    throw new IllegalArgumentException("La descripción de la categoría no puede quedar vacía.");
+                }
+                categoriaExistente.setDescripcion(categoria.getDescripcion());
             }
             if (categoria.getProductos() != null) {
                 categoriaExistente.setProductos(categoria.getProductos());
@@ -71,7 +81,7 @@ public class CategoriaService {
         if (!categoria.getProductos().isEmpty()) {
             throw new RuntimeException("No se puede eliminar: La categoría aún tiene productos.");
         }
-        
+
         categoriaRepository.deleteById(id);
     }
 }
