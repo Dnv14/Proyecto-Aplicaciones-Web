@@ -65,9 +65,13 @@ public class CategoriaService {
     }
 
     public void eliminarCategoria(Long id) {
-        if (!categoriaRepository.existsById(id)) {
-            throw new RuntimeException("No se puede eliminar: La categoría no existe.");
+        Categoria categoria = categoriaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("No se puede eliminar: La categoría no existe."));
+
+        if (!categoria.getProductos().isEmpty()) {
+            throw new RuntimeException("No se puede eliminar: La categoría aún tiene productos.");
         }
+        
         categoriaRepository.deleteById(id);
     }
 }
