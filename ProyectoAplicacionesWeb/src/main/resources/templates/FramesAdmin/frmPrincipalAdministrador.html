@@ -1,68 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
-<head th:replace="~{framesAdmin/utileriasAdmin/head :: headAdmin('Sport Shop | Panel Admin')}"></head>
+    <head th:replace="~{framesAdmin/utileriasAdmin/head :: headAdmin('Sport Shop | Panel Admin')}"></head>
     <body>
-    <header th:replace="~{FramesAdmin/utileriasAdmin/header :: headerAdmin}"></header>
-    <main class="main-content">
-        <div class="section-title">
-            <h2>Lo mas vendido</h2>
-            <p>Lo mejor en precios y calidad</p>
-        </div>
+        <header th:replace="~{FramesAdmin/utileriasAdmin/header :: headerAdmin}"></header>
+        <main class="main-content">
+            <div class="section-title">
+                <h2>Lo mas vendido</h2>
+                <p>Lo mejor en precios y calidad</p>
+            </div>
 
-        <section class="product-grid">
+            <section class="product-grid">
 
-            <article class="product-card">
-                <div class="card-image">
-                    <img src="../../static/imgs/balonFutbol.png" alt="Balón de fútbol Pro Match">
-                </div>
-                <div class="card-body">
-                    <h3>Balón de fútbol Pro Match</h3>
-                    <p class="price">$699 MXN</p>
-                    <button class="btn-agregar"> AGREGAR AL CARRITO</button>
-                </div>
-            </article>
+                <article class="product-card">
+                    <div class="card-image">
+                        <img src="../../static/imgs/balonFutbol.png" alt="Balón de fútbol Pro Match">
+                    </div>
+                    <div class="card-body">
+                        <h3>Balón de fútbol Pro Match</h3>
+                        <p class="price">$699 MXN</p>
+                        <button class="btn-agregar"> AGREGAR AL CARRITO</button>
+                    </div>
+                </article>
 
-            <article class="product-card">
-                <div class="card-image">
-                    <img src="../../static/imgs/balonFutbol.png" alt="Balón de fútbol Pro Match">
-                </div>
-                <div class="card-body">
-                    <h3>Balón de fútbol Pro Match</h3>
-                    <p class="price">$699 MXN</p>
-                    <button class="btn-agregar"> AGREGAR AL CARRITO</button>
-                </div>
-            </article>
+                <article class="product-card">
+                    <div class="card-image">
+                        <img src="../../static/imgs/balonFutbol.png" alt="Balón de fútbol Pro Match">
+                    </div>
+                    <div class="card-body">
+                        <h3>Balón de fútbol Pro Match</h3>
+                        <p class="price">$699 MXN</p>
+                        <button class="btn-agregar"> AGREGAR AL CARRITO</button>
+                    </div>
+                </article>
 
-            <article class="product-card">
-                <div class="card-image">
-                    <img src="../../static/imgs/balonFutbol.png" alt="Balón de fútbol Pro Match">
-                </div>
-                <div class="card-body">
-                    <h3>Balón de fútbol Pro Match</h3>
-                    <p class="price">$699 MXN</p>
-                    <button class="btn-agregar"> AGREGAR AL CARRITO</button>
-                </div>
-            </article>
+                <article class="product-card">
+                    <div class="card-image">
+                        <img src="../../static/imgs/balonFutbol.png" alt="Balón de fútbol Pro Match">
+                    </div>
+                    <div class="card-body">
+                        <h3>Balón de fútbol Pro Match</h3>
+                        <p class="price">$699 MXN</p>
+                        <button class="btn-agregar"> AGREGAR AL CARRITO</button>
+                    </div>
+                </article>
+            </section>
+            <div th:replace="~{FrameError/modalError :: modalDeError}"></div>
+        </main>
 
-
-
-        </section>
-    </main>
-
-    <footer class="main-footer">
-        <div class="footer-benefit">
-            <span>Envíos gratis</span>
-            <small>En compras mayores $500</small>
-        </div>
-        <div class="footer-benefit">
-            <span>Compras seguras</span>
-            <small>En compras mayores $500</small>
-        </div>
-        <div class="footer-benefit">
-            <span>Compras seguras</span>
-            <small>En compras mayores $500</small>
-        </div>
-    </footer>
+        <footer th:replace="~{FramesAdmin/utileriasAdmin/footer :: footerAdmin}"></footer>
 
     </body>
 

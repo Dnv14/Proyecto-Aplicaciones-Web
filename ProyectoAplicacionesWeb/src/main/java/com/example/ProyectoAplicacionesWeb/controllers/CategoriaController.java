@@ -17,6 +17,7 @@ public class CategoriaController {
     //LOS GET
 
     @GetMapping("/admin/categorias")
+
     public String mostrarCategorias(@RequestParam(name = "buscar", required = false) String buscar, Model model) {
         if (buscar != null && !buscar.isBlank()) {
             model.addAttribute("categorias", categoriaService.buscarPorNombre(buscar));
@@ -41,21 +42,39 @@ public class CategoriaController {
     //LOS POST
 
     @PostMapping("/admin/crearCategoria")
-    public String procesarCrearCategoria(@ModelAttribute Categoria categoria) {
-        categoriaService.crearCategoria(categoria);
-        return "redirect:/admin/categorias";
+    public String procesarCrearCategoria(@ModelAttribute Categoria categoria, Model model) {
+        try {
+            categoriaService.crearCategoria(categoria);
+            return "redirect:/admin/categorias";
+
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("error", e.getMessage());
+            return "FramesAdmin/frmAgregarCategoria";
+        }
     }
 
     @PostMapping("/admin/editarCategoria")
-    public String procesarEditarCategoria(@ModelAttribute Categoria categoria) {
-        categoriaService.actualizarCategoriaParcial(categoria.getIdCategoria(), categoria);
-        return "redirect:/admin/categorias";
+    public String procesarEditarCategoria(@ModelAttribute Categoria categoria, Model model) {
+        try {
+            categoriaService.actualizarCategoriaParcial(categoria.getIdCategoria(), categoria);
+            return "redirect:/admin/categorias";
+
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("error", e.getMessage());
+            return "FramesAdmin/frmEditarCategoria";
+        }
     }
 
 
     @PostMapping("/admin/eliminarCategoria/{id}")
-    public String eliminarCategoria(@PathVariable("id") Long id) {
-        categoriaService.eliminarCategoria(id);
-        return "redirect:/admin/categorias";
+    public String eliminarCategoria(@PathVariable("id") Long id, Model model) {
+        try {
+            categoriaService.eliminarCategoria(id);
+            return "redirect:/admin/categorias";
+        } catch (RuntimeException e) {
+            model.addAttribute("error", e.getMessage());
+            model.addAttribute("categorias", categoriaService.findAll());
+            return "FramesAdmin/frmGestionarCategorias";
+        }
     }
 }

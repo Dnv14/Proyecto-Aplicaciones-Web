@@ -62,21 +62,9 @@
                     </table>
                 </div>
             </div>
+            <div th:replace="~{FrameError/modalError :: modalDeError}"></div>
         </main>
 
-        <footer class="main-footer">
-            <div class="footer-benefit">
-                <span>Envíos gratis</span>
-                <small>En compras mayores $500</small>
-            </div>
-            <div class="footer-benefit">
-                <span>Compras seguras</span>
-                <small>En compras mayores $500</small>
-            </div>
-            <div class="footer-benefit">
-                <span>Compras seguras</span>
-                <small>En compras mayores $500</small>
-            </div>
-        </footer>
+        <footer th:replace="~{FramesAdmin/utileriasAdmin/footer :: footerAdmin}"></footer>
     </body>
 </html>

@@ -22,8 +22,8 @@ public class InventarioController {
     private ProductoRepository productoRepository;
 
     @GetMapping("/admin/ajustarInventario")
-    public String mostrarInventario(@RequestParam(name="idProducto",required = false) Long idpProducto ,Model model) {
-        if(idpProducto!=null){
+    public String mostrarInventario(@RequestParam(name = "idProducto", required = false) Long idpProducto, Model model) {
+        if (idpProducto != null) {
             productoRepository.findById(idpProducto).ifPresent(producto -> model.addAttribute("producto", producto));
         }
         return "FramesAdmin/frmAjustarInventario";
@@ -42,8 +42,7 @@ public class InventarioController {
         } catch (IllegalArgumentException e) {
             redirectAttributes.addFlashAttribute("error", e.getMessage());
         }
-        return "redirect:/admin/ajustarInventario?idProducto="+idProducto;
+        return "redirect:/admin/ajustarInventario?idProducto=" + idProducto;
     }
-
 
 }

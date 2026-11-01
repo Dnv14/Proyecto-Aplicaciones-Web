@@ -27,7 +27,7 @@ public class InventarioService {
         if (cantidad == null || cantidad < 0 || (cantidad == 0 && tipoMovimiento != TipoMovimiento.CORRECCION)) {
             throw new IllegalArgumentException("Cantidad no válida");
         }
-        if(comentario == null || comentario.isBlank()) {
+        if (comentario == null || comentario.isBlank()) {
             throw new IllegalArgumentException("El motivo del ajuste es obligatorio");
         }
         Producto producto = productoRepository.findById(idProducto).orElseThrow(() -> new RuntimeException("Producto no encontrado"));

@@ -27,37 +27,42 @@ public class ProductoController {
     }
 
     @GetMapping("/admin/productos")
-    public String mostrarProductos(@RequestParam(name = "buscar", required = false) String buscar,Model model) {
+    public String mostrarProductos(@RequestParam(name = "buscar", required = false) String buscar, Model model) {
         if (buscar == null || buscar.isBlank()) {
-            model.addAttribute("productos",productoService.obtenerProductos());
-        }else if(buscar.matches("\\d+")){
-            model.addAttribute("productos",productoService.buscarProductoPorId(Long.valueOf(buscar)));
-        }else{
-            model.addAttribute("productos",productoService.buscarProductosPorNombre(buscar));
+            model.addAttribute("productos", productoService.obtenerProductos());
+        } else if (buscar.matches("\\d+")) {
+            model.addAttribute("productos", productoService.buscarProductoPorId(Long.valueOf(buscar)));
+        } else {
+            model.addAttribute("productos", productoService.buscarProductosPorNombre(buscar));
         }
-        model.addAttribute("busquedaActual",buscar);
+        model.addAttribute("busquedaActual", buscar);
         return "FramesAdmin/frmInventario";
     }
 
 
     @PostMapping("/admin/crearProducto")
     public String crearProducto(@ModelAttribute Producto producto,
-                                @RequestParam("imagenArchivo") MultipartFile imagenArchivo) throws IOException {
-        productoService.guardarProducto(producto, imagenArchivo);
-        return "redirect:/admin/productos";
+                                @RequestParam("imagenArchivo") MultipartFile imagenArchivo, Model model) throws IOException {
+        try {
+            productoService.guardarProducto(producto, imagenArchivo);
+            return "redirect:/admin/productos";
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("error", e.getMessage());
+            return "FramesAdmin/frmCrearProducto";
+        }
     }
 
     @PostMapping("/admin/productos/{id}/estado")
-    public String cambiarEstadoProducto(@PathVariable Long id){
-        Producto producto=productoService.obtenerProductoPorId(id).orElseThrow(()->new RuntimeException("Producto no encontrado"));
-        productoService.cambiarEstadoProducto(id,!producto.getActivo());
+    public String cambiarEstadoProducto(@PathVariable Long id) {
+        Producto producto = productoService.obtenerProductoPorId(id).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+        productoService.cambiarEstadoProducto(id, !producto.getActivo());
         return "redirect:/admin/productos";
     }
 
     @GetMapping("/admin/productos/{id}/editar")
     public String mostrarEditarProducto(@PathVariable Long id, Model model) {
-        Producto producto=productoService.obtenerProductoPorId(id).orElseThrow(()->new RuntimeException("Producto no encontrado"));
-        model.addAttribute("producto",producto);
+        Producto producto = productoService.obtenerProductoPorId(id).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+        model.addAttribute("producto", producto);
         model.addAttribute("categorias", categoriaRepository.findAll());
         return "FramesAdmin/frmEditarProducto";
     }
@@ -65,9 +70,14 @@ public class ProductoController {
     @PostMapping("/admin/productos/{id}/editar")
     public String actualizarProducto(@PathVariable Long id,
                                      @ModelAttribute Producto producto,
-                                     @RequestParam("imagenArchivo") MultipartFile imagenArchivo) throws IOException {
-        productoService.actualizarProducto(id, producto, imagenArchivo);
-        return"redirect:/admin/productos";
+                                     @RequestParam("imagenArchivo") MultipartFile imagenArchivo, Model model) throws IOException {
+        try {
+            productoService.actualizarProducto(id, producto, imagenArchivo);
+            return "redirect:/admin/productos";
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("error", e.getMessage());
+            return "FramesAdmin/frmEditarProducto";
+        }
     }
 
 }

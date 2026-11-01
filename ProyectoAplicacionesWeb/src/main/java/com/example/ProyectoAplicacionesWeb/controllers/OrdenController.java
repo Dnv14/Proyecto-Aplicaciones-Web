@@ -35,15 +35,21 @@ public class OrdenController {
     @PostMapping("/admin/ordenes/actualizar-estado")
     public String actualizarEstadoOrden(
             @RequestParam("idOrden") Long idOrden,
-            @RequestParam("nuevoEstado") EstadoOrden nuevoEstado) throws IOException {
+            @RequestParam("nuevoEstado") EstadoOrden nuevoEstado, Model model) throws IOException {
 
-        Optional<Orden> optionalOrden = ordenService.buscarOrdenPorId(idOrden);
-        if (optionalOrden.isPresent()) {
-            Orden orden = optionalOrden.get();
-            orden.setEstado(nuevoEstado);
-            ordenService.crearOrden(orden);
+
+        try {
+            Optional<Orden> optionalOrden = ordenService.buscarOrdenPorId(idOrden);
+            if (optionalOrden.isPresent()) {
+                Orden orden = optionalOrden.get();
+                orden.setEstado(nuevoEstado);
+                ordenService.crearOrden(orden);
+            }
+            return "redirect:/admin/ordenes?id=" + idOrden;
+        } catch (IllegalArgumentException e) {
+            model.addAttribute("error", e.getMessage());
+            return "FramesAdmin/frmListadoOrdenes";
         }
-        return "redirect:/admin/ordenes?id=" + idOrden;
     }
 
 }

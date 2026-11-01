@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <body>
+        <div th:fragment="modalDeError">
+
+            <div th:if="${error}" class="modal-contenedor">
+                <input type="checkbox" id="toggle-modal" class="modal-toggle" hidden>
+
+                <div class="modal-error">
+                    <div class="modal-content">
+                        <div class="icono-error">⚠️</div>
+                        <h3 style="margin-top: 0; color: #dc2626;">Hubo un problema</h3>
+
+                        <p th:text="${error}">Mensaje de error aquí</p>
+
+                        <label for="toggle-modal" class="btn-cerrar-modal">Entendido</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
