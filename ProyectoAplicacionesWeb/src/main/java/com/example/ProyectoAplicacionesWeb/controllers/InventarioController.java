@@ -1,7 +1,6 @@
 package com.example.ProyectoAplicacionesWeb.controllers;
 
 import com.example.ProyectoAplicacionesWeb.model.enums.TipoMovimiento;
-import com.example.ProyectoAplicacionesWeb.repository.InventarioRepository;
 import com.example.ProyectoAplicacionesWeb.repository.ProductoRepository;
 import com.example.ProyectoAplicacionesWeb.services.InventarioService;
 import org.springframework.beans.factory.annotation.Autowired;

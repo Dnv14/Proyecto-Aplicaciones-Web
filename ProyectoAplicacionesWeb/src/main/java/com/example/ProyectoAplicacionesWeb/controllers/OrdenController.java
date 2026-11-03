@@ -2,8 +2,6 @@ package com.example.ProyectoAplicacionesWeb.controllers;
 
 import com.example.ProyectoAplicacionesWeb.model.Orden;
 import com.example.ProyectoAplicacionesWeb.model.enums.EstadoOrden;
-import com.example.ProyectoAplicacionesWeb.repository.CategoriaRepository;
-import com.example.ProyectoAplicacionesWeb.repository.OrdenRepository;
 import com.example.ProyectoAplicacionesWeb.services.OrdenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

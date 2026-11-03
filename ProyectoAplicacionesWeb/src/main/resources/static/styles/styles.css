@@ -19,6 +19,7 @@ llamemos al styles*/
 @import "admin/agregar-categoria.css";
 @import "admin/editar-categoria.css";
 @import "admin/ajustar-inventario.css";
+@import "admin/dashboard.css";
 @import "compartidos/error.css";
 
 

@@ -1,0 +1,138 @@
+.dash-admin {
+    max-width: 1100px; 
+}
+
+.dash-admin h1 {
+    font-size: 22px;
+    margin-bottom: 5px; 
+}
+
+.dash-descripcion, .dash-seccion > p {
+    color: var(--text-muted, #6b7280);
+    font-size: 13px; 
+}
+
+.dash-filtro {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 18px 0;
+    flex-wrap: wrap; 
+    font-size: 13px; 
+}
+
+.dash-filtro input {
+    border: 1px solid var(--border-color, #d1d5db); 
+    border-radius: 4px; 
+    padding: 7px; font: inherit; 
+    background: white;
+}
+
+.dash-filtro button {
+    border: 0; 
+    background: var(--primary-color, #182433); 
+    color: white; padding: 8px 15px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font: inherit; 
+}
+
+.dash-filtro button:hover {
+    background: var(--primary-hover, #30445c); 
+}
+
+.dash-indicadores {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px; 
+}
+
+.dash-caja, .dash-seccion {
+    background: white; 
+    border: 1px solid var(--border-color, #d1d5db); 
+    border-radius: 6px; 
+    padding: 16px; 
+}
+
+.dash-caja h2 {
+    font-size: 14px; 
+    font-weight: 600; 
+}
+
+.dash-numero {
+    font-size: 25px; 
+    font-weight: bold; 
+    margin: 8px 0 2px; 
+    overflow-wrap: anywhere; 
+}
+
+.dash-caja small {
+    font-size: 11px; 
+    color: var(--text-muted, #636a7a); 
+}
+
+.dash-nota {
+    color: var(--text-muted, #6b7280); 
+    font-size: 11px; 
+    margin: 10px 0 20px; 
+}
+
+.dash-seccion {
+    margin-bottom: 18px; 
+}
+
+.dash-seccion h2 {
+    font-size: 17px; 
+    margin-bottom: 5px; 
+}
+
+.dash-tabla-contenedor {
+    overflow-x: auto; 
+    margin-top: 12px; 
+}
+
+.dash-tabla {
+    border-collapse: collapse; 
+    width: 100%; 
+    font-size: 12px; 
+}
+
+.dash-tabla th, .dash-tabla td {
+    border-bottom: 1px solid var(--border-color, #d1d5db); 
+    padding: 10px; 
+    text-align: left; 
+}
+
+.dash-tabla th {
+    background: var(--bg-secondary, #f2f2f2); 
+    font-weight: 600; 
+}
+
+.dash-tabla a, .dash-titulo-fila a, .dash-accesos a {
+    color: var(--link-color, #253f60); 
+    text-decoration: underline; 
+}
+
+.dash-titulo-fila {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    gap: 10px; 
+}
+
+.dash-titulo-fila a {
+    font-size: 12px;
+}
+
+.dash-accesos {
+    display: flex; 
+    gap: 14px; 
+    flex-wrap: wrap; 
+    margin: 15px 0; 
+    font-size: 12px; 
+}
+
+@media (max-width: 700px) {
+     .dash-indicadores { grid-template-columns: 1fr; } 
+}

@@ -13,4 +13,12 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
 
     List<Producto> findByNombreContainingIgnoreCase(String nombre);
 
+    long countByActivoTrue();
+
+    long countByActivoTrueAndStockLessThanEqual(Integer stock);
+
+    List<Producto> findTop5ByActivoTrueOrderByNombreAsc();
+
+    List<Producto> findTop5ByActivoTrueAndStockLessThanEqualOrderByStockAscNombreAsc(Integer stock);
+
 }

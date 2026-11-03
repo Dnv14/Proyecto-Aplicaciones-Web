@@ -9,7 +9,7 @@ public class InicioController {
 
     @GetMapping("/admin")
     public String inicioAdministrador() {
-        return "FramesAdmin/frmPrincipalAdministrador";
+        return "redirect:/admin/dashboard";
     }
 
     @GetMapping("/cliente")

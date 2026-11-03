@@ -6,12 +6,10 @@ import com.example.ProyectoAplicacionesWeb.model.enums.TipoMovimiento;
 import com.example.ProyectoAplicacionesWeb.repository.InventarioRepository;
 import com.example.ProyectoAplicacionesWeb.repository.ProductoRepository;
 import jakarta.transaction.Transactional;
-import org.hibernate.validator.internal.constraintvalidators.hv.Mod10CheckValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Service
 public class InventarioService {

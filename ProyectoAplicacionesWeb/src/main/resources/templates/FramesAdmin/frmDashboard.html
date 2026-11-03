@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{FramesAdmin/utileriasAdmin/head :: headAdmin('Sport Shop | Dashboard')}"></head>
+<body>
+<header th:replace="~{FramesAdmin/utileriasAdmin/header :: headerAdmin}"></header>
+
+<main class="dash-admin" th:object="${resumen}">
+    <h1>Dashboard de resumen</h1>
+    <p class="dash-descripcion">Aquí puedes consultar las órdenes, ventas y existencias de la tienda.</p>
+
+    <form class="dash-filtro" th:action="@{/admin/dashboard}" method="get">
+        <label for="mes">Mes a consultar:</label>
+        <input type="month" id="mes" name="mes" th:value="*{mesSeleccionado}" required>
+        <button type="submit">Consultar</button>
+    </form>
+
+    <div class="dash-indicadores">
+        <section class="dash-caja">
+            <h2>Órdenes del día</h2>
+            <p class="dash-numero" th:text="*{ordenesHoy}">0</p>
+            <small>Registradas hoy</small>
+        </section>
+        <section class="dash-caja">
+            <h2>Productos con stock bajo</h2>
+            <p class="dash-numero" th:text="*{productosStockBajo}">0</p>
+            <small>Productos activos con 5 unidades o menos</small>
+        </section>
+        <section class="dash-caja">
+            <h2>Ventas del período</h2>
+            <p class="dash-numero" th:text="'$' + ${#numbers.formatDecimal(resumen.valorOrdenesPeriodo, 1, 'COMMA', 2, 'POINT')}">$0.00</p>
+            <small th:text="|MXN · ${resumen.nombrePeriodo}|">MXN · mes actual</small>
+        </section>
+    </div>
+
+    <p class="dash-nota">El importe se calcula sumando las órdenes registradas durante el mes seleccionado. El sistema todavía no distingue pagos confirmados.</p>
+
+    <section class="dash-seccion">
+        <h2>Productos más vendidos</h2>
+        <p>Los 5 productos con más unidades vendidas en el mes seleccionado.</p>
+        <div class="dash-tabla-contenedor">
+            <table class="dash-tabla">
+                <thead><tr><th>Producto</th><th>Unidades vendidas</th></tr></thead>
+                <tbody>
+                <tr th:if="${#lists.isEmpty(resumen.productosMasVendidos)}"><td colspan="2">No hay ventas registradas para este mes.</td></tr>
+                <tr th:each="producto : *{productosMasVendidos}">
+                    <td th:text="${producto.nombre}">Producto</td>
+                    <td th:text="${producto.unidadesVendidas}">0</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="dash-seccion">
+        <h2>Productos con poco inventario</h2>
+        <p>Se muestran hasta 5 productos activos con menor cantidad disponible.</p>
+        <div class="dash-tabla-contenedor">
+            <table class="dash-tabla">
+                <thead><tr><th>Producto</th><th>Stock disponible</th><th></th></tr></thead>
+                <tbody>
+                <tr th:if="${#lists.isEmpty(resumen.productosStockCritico)}"><td colspan="3">No hay productos con stock bajo.</td></tr>
+                <tr th:each="producto : *{productosStockCritico}">
+                    <td th:text="${producto.nombre}">Producto</td>
+                    <td th:text="|${producto.stock} unidades|">0 unidades</td>
+                    <td><a th:href="@{/admin/ajustarInventario(idProducto=${producto.idProducto})}">Ajustar</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="dash-seccion">
+        <div class="dash-titulo-fila">
+            <h2>Órdenes recientes</h2>
+            <a th:href="@{/admin/ordenes}">Ver todas</a>
+        </div>
+        <div class="dash-tabla-contenedor">
+            <table class="dash-tabla">
+                <thead><tr><th>Folio</th><th>Fecha</th><th>Estado</th><th>Total</th></tr></thead>
+                <tbody>
+                <tr th:if="${#lists.isEmpty(resumen.ordenesRecientes)}"><td colspan="4">Todavía no hay órdenes registradas.</td></tr>
+                <tr th:each="orden : *{ordenesRecientes}">
+                    <td><a th:href="@{/admin/ordenes(id=${orden.idOrden})}"
+                           th:text="${orden.folioOrden != null and not #strings.isEmpty(orden.folioOrden) ? orden.folioOrden : '#' + orden.idOrden}">#1</a></td>
+                    <td th:text="${orden.fecha != null ? #temporals.format(orden.fecha, 'dd/MM/yyyy') : 'Sin fecha'}">01/01/2026</td>
+                    <td th:text="${orden.estado != null ? orden.estado.name() : 'Sin estado'}">PENDIENTE</td>
+                    <td th:text="${orden.total != null ? '$' + #numbers.formatDecimal(orden.total, 1, 'COMMA', 2, 'POINT') : '-'}">$0.00</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <div class="dash-accesos">
+        <a th:href="@{/admin/productos}">Administrar productos</a>
+        <a th:href="@{/admin/ordenes}">Administrar órdenes</a>
+        <a th:href="@{/admin/categorias}">Administrar categorías</a>
+    </div>
+</main>
+
+<footer th:replace="~{FramesAdmin/utileriasAdmin/footer :: footerAdmin}"></footer>
+</body>
+</html>
