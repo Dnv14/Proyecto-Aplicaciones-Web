@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//guardamos los datos comunes de clientes y administradores, cada tipo tiene su propia tabla vinculada
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
+//representamos un producto agregado al carrito con su cantidad y subtotal
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

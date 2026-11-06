@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.util.List;
 
+//representamos al cliente con sus datos de usuario, direcciones, órdenes y carrito
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

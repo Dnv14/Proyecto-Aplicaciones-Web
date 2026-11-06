@@ -22,6 +22,7 @@ import jakarta.transaction.Transactional;
 @Service 
 public class DashboardService {
     
+    //consideramos stock bajo cuando un producto activo tiene cinco unidades o menos
     private static final int STOCK_BAJO_LIMITE = 5;
     private static final DateTimeFormatter FORMATO_MES = DateTimeFormatter.ofPattern("MMMM yyyy");
 
@@ -36,10 +37,13 @@ public class DashboardService {
     }
 
     @Transactional 
+    //reunimos los datos que necesita el panel para el mes seleccionado
     public DashboardResumen obtenerResumen(YearMonth mes) {
+        //tomamos desde el primer día del mes hasta antes del primer día del siguiente
         LocalDate mesInicio = mes.atDay(1);
         LocalDate mesFin = mes.plusMonths(1).atDay(1);
 
+        //estos conteos son generales, no se limitan al mes seleccionado
         long totalOrdenes = ordenRepository.count();
         long ordenesHoy = ordenRepository.countByFecha(LocalDate.now());
         long productosActivos = productoRepository.countByActivoTrue();
@@ -47,20 +51,25 @@ public class DashboardService {
 
         List<EstadoOrdenResumen> estados = new ArrayList<>();
         long ordenesPendientes = 0;
+        //recorremos los estados para contar cuántas órdenes hay en cada uno
         for(EstadoOrden estado : EstadoOrden.values()) {
             long cantidad = ordenRepository.countByEstado(estado);
             if(estado == EstadoOrden.PENDIENTE) {
                 ordenesPendientes = cantidad;
             }
+            //calculamos el porcentaje de cada estado y evitamos dividir entre cero
             int porcentaje = totalOrdenes > 0 ? (int) ((cantidad * 100) / totalOrdenes) : 0;
             estados.add(new EstadoOrdenResumen(estado, etiquetaEstadoOrden(estado.name()), cantidad, porcentaje));
         }
 
+        //sumamos el total de las órdenes que están dentro del mes seleccionado
         BigDecimal valorOrdenesPeriodo = ordenRepository.sumarTotalOrdenesEntreFechas(mesInicio, mesFin);
+        //si la consulta no devuelve un importe usamos cero
         if(valorOrdenesPeriodo == null) {
             valorOrdenesPeriodo = BigDecimal.ZERO;
         }
 
+        //enviamos los conteos, las últimas órdenes, los productos con poco stock y los más vendidos del mes
         return new DashboardResumen(
                 totalOrdenes,
                 ordenesHoy,
@@ -76,6 +85,7 @@ public class DashboardService {
                 detalleOrdenRepository.productosMasVendidosDelPeriodo(mesInicio, mesFin, PageRequest.of(0, 5)));
     }
 
+    //convertimos los nombres contemplados aquí a etiquetas, los demás quedan como desconocidos
     private String etiquetaEstadoOrden(String estado) {
         return switch (estado) {
             case "PENDIENTE" -> "Pendiente";

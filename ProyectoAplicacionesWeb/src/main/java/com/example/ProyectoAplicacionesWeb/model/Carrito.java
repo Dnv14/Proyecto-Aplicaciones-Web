@@ -9,6 +9,7 @@ import lombok.ToString;
 import java.time.LocalDateTime;
 import java.util.List;
 
+//relacionamos el carrito con su cliente y los productos agregados en sus detalles
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

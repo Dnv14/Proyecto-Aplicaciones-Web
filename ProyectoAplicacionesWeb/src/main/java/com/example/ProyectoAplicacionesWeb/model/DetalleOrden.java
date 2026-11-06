@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
+//guardamos la cantidad, el precio unitario y el subtotal de cada producto de la orden
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

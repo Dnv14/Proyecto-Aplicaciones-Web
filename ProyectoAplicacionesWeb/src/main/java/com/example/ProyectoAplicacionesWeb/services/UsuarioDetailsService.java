@@ -17,12 +17,13 @@ public class UsuarioDetailsService implements UserDetailsService {
     private UsuarioRepository usuarioRepository;
 
     @Override
+    //Spring Security llama a este método usando el correo recibido en el login
     public UserDetails loadUserByUsername(String correo){
-        // Busca por correo, si no existe, informa a spring security del fallo.
+        //buscamos por correo y avisamos a Spring Security si el usuario no existe
         Usuario usuario = usuarioRepository.findByCorreo(correo).orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
-        // Si el objeto es un administrador, asigna admin, en otro caso, cliente.
+        //si el usuario es un administrador asignamos ADMIN, en otro caso asignamos CLIENTE
         String rol = usuario instanceof Administrador ? "ADMIN" : "CLIENTE";
-        //user pertenece a spring security, Usuario es nuestra entidad de la base de datos.
+        //creamos el User de Spring Security usando el correo, el hash de la contraseña y el rol de nuestro usuario
         return User.withUsername(usuario.getCorreo()).password(usuario.getContrasenia()).roles(rol).build();
     }
 }

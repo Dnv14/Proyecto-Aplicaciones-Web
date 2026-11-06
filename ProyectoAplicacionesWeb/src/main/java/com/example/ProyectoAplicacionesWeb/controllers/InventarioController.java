@@ -21,7 +21,9 @@ public class InventarioController {
     private ProductoRepository productoRepository;
 
     @GetMapping("/admin/ajustarInventario")
+    //recibimos un ID opcional para cargar el producto que se quiere ajustar
     public String mostrarInventario(@RequestParam(name = "idProducto", required = false) Long idpProducto, Model model) {
+        //si llegó un ID buscamos el producto y lo enviamos al HTML solamente si existe
         if (idpProducto != null) {
             productoRepository.findById(idpProducto).ifPresent(producto -> model.addAttribute("producto", producto));
         }
@@ -29,6 +31,7 @@ public class InventarioController {
     }
 
     @PostMapping("/admin/ajustarInventario")
+    //recibimos el producto, la cantidad, el tipo de movimiento y el motivo del ajuste
     public String guardarAjuste(
             @RequestParam Long idProducto,
             @RequestParam Integer cantidad,
@@ -36,11 +39,15 @@ public class InventarioController {
             @RequestParam String comentario,
             RedirectAttributes redirectAttributes) {
         try {
+            //el servicio valida el movimiento, actualiza el stock y guarda el historial
             inventarioService.ajustarInventario(idProducto, cantidad, tipoMovimiento, comentario);
+            //guardamos un mensaje que se mostrará después de la redirección
             redirectAttributes.addFlashAttribute("mensaje", "Inventario actualizado correctamente");
         } catch (IllegalArgumentException e) {
+            //si el ajuste no es válido mostramos el motivo al regresar al formulario
             redirectAttributes.addFlashAttribute("error", e.getMessage());
         }
+        //volvemos al mismo producto para consultar cómo quedó su inventario
         return "redirect:/admin/ajustarInventario?idProducto=" + idProducto;
     }
 

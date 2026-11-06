@@ -8,6 +8,7 @@ import lombok.ToString;
 
 import java.util.List;
 
+//guardamos la dirección de un cliente y las órdenes asociadas a ella
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

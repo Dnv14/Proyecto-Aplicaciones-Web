@@ -9,6 +9,7 @@ import lombok.ToString;
 import java.math.BigDecimal;
 import java.util.List;
 
+//guardamos los datos del producto, su categoría y el historial de movimientos de inventario
 @Data
 @Entity
 @NoArgsConstructor

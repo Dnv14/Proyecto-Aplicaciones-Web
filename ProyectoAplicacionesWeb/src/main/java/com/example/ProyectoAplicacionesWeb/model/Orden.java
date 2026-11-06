@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
+//relacionamos la orden con el cliente, la dirección y el detalle de los productos
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

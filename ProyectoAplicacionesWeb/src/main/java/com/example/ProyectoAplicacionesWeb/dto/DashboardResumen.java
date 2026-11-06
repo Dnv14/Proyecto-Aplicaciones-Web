@@ -6,6 +6,7 @@ import java.util.List;
 import com.example.ProyectoAplicacionesWeb.model.Orden;
 import com.example.ProyectoAplicacionesWeb.model.Producto;
 
+//agrupamos los datos del panel en un solo objeto para enviarlos a la vista
 public record DashboardResumen(long totalOrdenes,
         long ordenesHoy,
         long ordenesPendientes,

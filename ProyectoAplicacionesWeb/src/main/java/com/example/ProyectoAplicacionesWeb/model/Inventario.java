@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
+//representamos un movimiento del inventario con su cantidad, fecha, motivo y producto
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

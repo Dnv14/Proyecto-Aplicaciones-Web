@@ -9,6 +9,7 @@ import lombok.ToString;
 
 import java.util.List;
 
+//guardamos los datos de la categoría y la relacionamos con sus productos
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

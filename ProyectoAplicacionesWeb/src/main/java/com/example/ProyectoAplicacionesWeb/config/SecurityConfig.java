@@ -12,60 +12,62 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    //registra la configuracion de seguridad para que spring la utilice
+    //registramos la configuración de seguridad para que Spring la utilice
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                //define quien puede acceder a cada ruta
+                //definimos quién puede acceder a cada ruta
                 .authorizeHttpRequests(auth -> auth
-                        //permite abrir el login, los estilos, y las imagenes sin iniciar sesion
+                        //permitimos abrir el login, el registro, los estilos y las imágenes sin iniciar sesión
                         .requestMatchers("/login", "/registro" , "/styles/**", "/imgs/**").permitAll()
-                        //solo permite entrar al panel a los ususarios con el rol de admin
+                        //permitimos entrar a las rutas de administración solamente con el rol ADMIN
                         .requestMatchers("/admin/**").hasRole("ADMIN")
+                        //permitimos entrar a las rutas del cliente solamente con el rol CLIENTE
                         .requestMatchers("/cliente/**").hasRole("CLIENTE")
-                        //deja punlicas las demas rutas
+                        //dejamos públicas las demás rutas
                         .anyRequest().permitAll()
                 )
-                //configuramos el inicio de sesion mediante el formulario
+                //configuramos el inicio de sesión mediante el formulario
                 .formLogin(login -> login
-                        //direccion donde el controlador mostrara el formulario
+                        //indicamos la dirección donde se muestra el formulario
                         .loginPage("/login")
-                        //direccion que  recibe los datos del formulario por post
+                        //indicamos la dirección que recibe los datos del formulario por POST
                         .loginProcessingUrl("/login")
-                        //nombre del intput que tiene el correo
+                        //indicamos el nombre del input que contiene el correo
                         .usernameParameter("correo")
-                        //nombre del intput que tiene la contraseña
+                        //indicamos el nombre del input que contiene la contraseña
                         .passwordParameter("contrasenia")
-                        //ejecuta cuando las credenciales sean correctas
+                        //ejecutamos esta parte cuando las credenciales son correctas
                         .successHandler((request, response,authentication) ->{
-                            //comprubea si alguno de sus permisos es role_admin
+                            //comprobamos si el usuario tiene el permiso ROLE_ADMIN
                             boolean esAdmin=authentication.getAuthorities().stream().anyMatch(p -> p.getAuthority().equals("ROLE_ADMIN"));
-                            //elige el destino segun su rol de ususario
+                            //elegimos la página de destino según el rol del usuario
                             String destino=esAdmin?"/admin":"/cliente";
-                            //envia al navegador al destino elegido
+                            //enviamos al navegador a la página elegida
                             response.sendRedirect(request.getContextPath()+destino);
                         })
-                        //si las credenciales fallan vuelve al login con el parametro error
+                        //si las credenciales fallan volvemos al login con el parámetro de error
                         .failureUrl("/login?error")
-                        //permite acceder a las rutas del login sin estar autenticado
+                        //permitimos acceder a las rutas del login sin estar autenticado
                         .permitAll()
                 )
-                //configuracion del cierre de sesion
+                //configuramos el cierre de sesión
                 .logout(logout -> logout
-                        //direccion a la que se enviara un post para cerrar sesion
+                        //indicamos la dirección que recibe el POST para cerrar sesión
                         .logoutUrl("/logout")
-                        //despues de salir vuelve al lgin
+                        //después de salir volvemos al login
                         .logoutSuccessUrl("/login?logout")
-                        //invalida la sesion http y elimina sus datos
+                        //invalidamos la sesión HTTP y eliminamos sus datos
                         .invalidateHttpSession(true)
-                        //permitimos acceder a las rutas de cierre de sesion
+                        //permitimos acceder a las rutas de cierre de sesión
                         .permitAll()
                 );
-        //construye y devuelve la cadena de filtros con esas reglas
+        //construimos y devolvemos los filtros con las reglas configuradas
         return http.build();
     }
 
     @Bean
+    //registramos BCrypt para generar hashes de las contraseñas y comprobarlas al iniciar sesión
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+//representamos al administrador con los datos heredados del usuario y el mismo ID
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Entity
