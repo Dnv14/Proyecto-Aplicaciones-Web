@@ -11,7 +11,7 @@
             <div class="inventory-card">
                 <div class="products-toolbar">
                     <form th:action="@{/admin/productos}" method="get">
-                        <input type="text" name="buscar" th:value="${busquedaActual}"
+                        <input autocomplete="off" type="text" name="buscar" th:value="${busquedaActual}"
                                class="input-rounded product-search"
                                placeholder="Ingresa el nombre o el codigo del producto">
                     </form>

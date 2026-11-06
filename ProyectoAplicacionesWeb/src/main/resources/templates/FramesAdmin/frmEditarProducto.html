@@ -13,7 +13,7 @@
                     <div class="form-section">
                         <div class="form-group row">
                             <label for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" name="nombre" th:value="${producto.nombre}"
+                            <input autocomplete="off" type="text" id="nombre" name="nombre" th:value="${producto.nombre}"
                                    class="input-rounded">
                         </div>
 
@@ -25,7 +25,7 @@
 
                         <div class="form-group row">
                             <label for="precio">Precio: $</label>
-                            <input type="text" id="precio" name="precio" th:value="${producto.precio}"
+                            <input autocomplete="off" type="text" id="precio" name="precio" th:value="${producto.precio}"
                                    class="input-rounded input-short">
                         </div>
 
@@ -48,7 +48,7 @@
                                  style="width: 100%; height: 100%; object-fit: contain;">
                         </div>
                         <label for="file-input" class="btn-select-img">Seleccionar Imagen</label>
-                        <input type="file" id="file-input" accept="image/*" name="imagenArchivo" style="display: none;">
+                        <input autocomplete="off" type="file" id="file-input" accept="image/*" name="imagenArchivo" style="display: none;">
                     </div>
 
                 </div>

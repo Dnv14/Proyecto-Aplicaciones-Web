@@ -20,6 +20,7 @@ public class ProductoController {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
+
     @GetMapping("/admin/crearProducto")
     public String mostrarCrearProducto(Model model) {
         model.addAttribute("categorias", categoriaRepository.findAll());
@@ -27,15 +28,23 @@ public class ProductoController {
     }
 
     @GetMapping("/admin/productos")
+    //este metodo muestra el inventario por nombre del producto o id, obtenemos el parametro de la URL y el modelo que nos permite inviar datos
     public String mostrarProductos(@RequestParam(name = "buscar", required = false) String buscar, Model model) {
+        //validamos si no busco algo o viene vacio
         if (buscar == null || buscar.isBlank()) {
+            //mostramos todos los productos registrados, porque no busco nada
             model.addAttribute("productos", productoService.obtenerProductos());
+            //validamos si no contiene un digito numerico
         } else if (buscar.matches("\\d+")) {
+            //si encuenta busca por id
             model.addAttribute("productos", productoService.buscarProductoPorId(Long.valueOf(buscar)));
         } else {
+            //si no se cumple ninguna de las dos anteriores quiere buscamos por nombre
             model.addAttribute("productos", productoService.buscarProductosPorNombre(buscar));
         }
+        //enviamos lo buscado al html
         model.addAttribute("busquedaActual", buscar);
+        //indico lo que se debe mostrar en la vista
         return "FramesAdmin/frmInventario";
     }
 

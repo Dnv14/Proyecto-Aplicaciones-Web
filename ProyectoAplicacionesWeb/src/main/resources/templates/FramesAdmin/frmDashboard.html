@@ -10,7 +10,7 @@
 
             <form class="dash-filtro" th:action="@{/admin/dashboard}" method="get">
                 <label for="mes">Mes a consultar:</label>
-                <input type="month" id="mes" name="mes" th:value="*{mesSeleccionado}" required>
+                <input autocomplete="off" type="month" id="mes" name="mes" th:value="*{mesSeleccionado}" required>
                 <button type="submit">Consultar</button>
             </form>
 

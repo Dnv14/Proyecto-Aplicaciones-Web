@@ -14,7 +14,7 @@
                     <!-- Buscador con icono -->
                     <div class="form-group row search-group">
                         <span class="search-icon">🔍</span>
-                        <input type="text" id="buscadorFolio" placeholder="Ingrese folio de la orden"
+                        <input autocomplete="off" type="text" id="buscadorFolio" placeholder="Ingrese folio de la orden"
                                class="input-rounded">
                     </div>
 
@@ -85,7 +85,7 @@
                         <form th:action="@{/admin/ordenes/actualizar-estado}" method="post" class="order-info-header"
                               style="align-items: center;">
                             <!-- Campo oculto para enviar el ID de la orden -->
-                            <input type="hidden" name="idOrden" th:value="${ordenSeleccionada.idOrden}"/>
+                            <input autocomplete="off" type="hidden" name="idOrden" th:value="${ordenSeleccionada.idOrden}"/>
 
                             <div>
                                 <h3 class="order-id"

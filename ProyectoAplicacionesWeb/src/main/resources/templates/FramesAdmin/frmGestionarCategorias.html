@@ -11,7 +11,7 @@
             <div class="inventory-card">
                 <div class="products-toolbar cat-toolbar">
                     <form th:action="@{/admin/categorias}" method="get" class="search-form" style="margin: 0;">
-                        <input type="text"
+                        <input autocomplete="off" type="text"
                                name="buscar"
                                th:value="${param.buscar}"
                                class="input-rounded product-search"
